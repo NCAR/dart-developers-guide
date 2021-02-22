@@ -1,0 +1,29 @@
+hkershaw@cisl-fisher Developers_Guide $ which python
+/opt/local/bin/python
+hkershaw@cisl-fisher Developers_Guide $ python --version
+Python 3.8.6
+hkershaw@cisl-fisher Developers_Guide $ which python3
+/usr/local/bin/python3
+hkershaw@cisl-fisher Developers_Guide $ python3 --version
+Python 3.9.1
+
+
+Using /opt/local/bin/python  Python 3.8.6
+
+
+hkershaw@cisl-fisher Developers_Guide $ python -m venv dev-guide
+
+Installing sphinx:
+source dev-guide/bin/activate
+pip install Sphinx
+
+
+Creating docs:
+
+sphinx-qucikstart
+
+follow prompt.  I chose separate build and source directories
+
+To make the docs:
+make html
+
