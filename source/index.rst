@@ -15,9 +15,3 @@ Welcome to the DART developers guide
    commit-messages
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
