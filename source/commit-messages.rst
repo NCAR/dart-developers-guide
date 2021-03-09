@@ -2,12 +2,13 @@ Writing Commit Messages
 =======================
 
 Setting up your git environment
+--------------------------------
 
 Set your username and email that you want to be linked with git. 
 What you select here will be the ‘author’ information for your commits.
 
-.. code-block::
-  
+.. code-block:: text
+
   git config --global user.name “Margaret Hamilton”
   git config --global user.email mhamilton@nasa.gov
 
@@ -15,7 +16,7 @@ Set the editor you want to use for commit messages, vim, nano, emacs, notepad++,
 whatever your favorite editor is. In this example, I am setting my editor for 
 commit messages to vim. 
 
-.. code-block::  
+.. code-block:: text
   
   git config --global core.editor vim
 
@@ -24,7 +25,7 @@ will open vim when it wants you to write a commit message.
 
 To display what your git settings are:
 
-.. code-block::  
+.. code-block:: text
   
   git config --list
   
@@ -32,7 +33,7 @@ To display what your git settings are:
 Writing Good Commit Messages
 -----------------------------
 
-.. code-block::
+.. code-block:: text
 
   one line short summary of the change
 
@@ -40,7 +41,7 @@ Writing Good Commit Messages
 
 For example, 
 
-.. code-block::
+.. code-block:: text 
   
   Place ring in Mount Doom
   
@@ -51,4 +52,4 @@ For example,
 .. warning::
 
 	Commit messages are visible to the whole world. 
-	
+        	

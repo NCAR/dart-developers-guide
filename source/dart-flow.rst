@@ -1,8 +1,60 @@
+.. _DART-flow:
+
 DART flow
 ==========
 
+#. Create an :ref:`issue <issues>`. 
+   What is the problem you are trying to fix. 
+#. Add a label to the issue
+   The label helps prioritize the issue.  Is it a bug fix, is it a new feature, 
+   is it refactoring existing code?
+   Use the label 'back-burner' for something  that is low priority
+#. Describe your solution in the issue. 
+   Give an estimation of how much code this will effect. Will your solution 
+   require changing several modules? 
+#. Get some feedback on your solution, the standup is a good place to ask for volunteers.
+#. Create a :ref:`feature branch <feature-branch>` to use for your solution.  
+   Once you are happy with your feature branch, push the branch up to the main 
+   DART repo and create a :ref:`pull request <reviewing>`. 
+#. Be as helpful to your reviewers as you can.
+   Only include changes relevant to your issue and avoid changes that are not 
+   relevant to the particular issue.  
+    
 
-main branch (master)
+.. warning::
+
+	master will be remained to main in the near future
+
+.. _feature-branch:
+
+Feature Branch Workflow
+-----------------------
+
+DART is using a Feature Branch Workflow. The core idea behind the Feature 
+Branch Workflow is that all feature development should take place in a dedicated
+branch instead of the master branch. This encapsulation makes it easy for 
+multiple developers to work on a particular feature without disturbing the main 
+codebase. It also means the master branch will never contain broken code, which
+is a huge advantage for continuous integration environments.
+
+
+Branch naming conventions
+--------------------------
+
+master 
+  This is the main branch.  It should always work.
+  
+feature-branch
+  Your feature branch should have a descriptive name which indicates what bug fix
+  or feature the branch contains.
+  
+gh-pages
+  This branch is used to serve the website dart.ucar.edu. It only has the website
+  content.  To make changes to the website, follow the instructions on 
+  https://github.com/NCAR/dart-web
+
+  
+Create your feature branch from the master branch. 
 
 .. code-block::
   
@@ -10,15 +62,34 @@ main branch (master)
   git checkout master
   git checkout -b new-feature
 
+where `new-feature` is the name of your feature branch.
+
+.. warning::
+  Don't name your branch after yourself, e.g `barbara-liskov-branch`. Pick a 
+  name that represents what you are working on, e.g. `clu-version-of-dart`.
+    
+
 To push your branch up to the main DART repo:
   
 .. code-block::
   
-   git push origin new-feature  
+   git push -u origin new-feature  
+
+.. note::
+
+   The -u flag means your local copy will track the remote repo.
+   It is no big deal if you don't do it, but it is nice to have `git status` 
+   tell you "your branch is up to date with remote/new_branch_name" or
+   "your branch is 2 commits behind remote/new_branch_name"
 
 
-Keeping your feature branch up to date with the master. Make sure you have your
-changes committed to your new-feature branch. 
+Keeping your feature branch up to date with the master
+-------------------------------------------------------
+
+As you are working on your feature branch, the master branch may have been 
+updated.  
+
+To keep your feature branch up to date with the master:
 
 .. code-block::
   
@@ -26,33 +97,60 @@ changes committed to your new-feature branch.
   git pull 
   git checkout new-feature 
   git merge master new-feature
-  
 
-#. Create and issue. 
-   What is the problem you are trying to fix. 
-   
-
-#. Add a label to the issue
-   The label helps prioritize the issue.  Is it a bug fix, is it a new feature, is it refactoring existing code?
-   Use the label 'back-burner' for something  that is low priority
-
-#. Describe you solution in the issue. 
-
-   Give an estimation of how much code this will effect. 
-
-#. Get some feedback on your solution, the standup is a good place to ask for volunteers
-
-#. Create a feature branch with your solution.  Once you are happy with your 
-feature branch, push the branch up to the main DART repo and create a pull request. 
-You 
+.. warning::
+  Make sure you have committed any changes to your new-feature branch before 
+  updating from the master  	
 
 Public development
 ------------------
 
-
+In general, all DART development is public. 
 
 
 Private development
 -------------------
 
-When is it ok to use a private repo?
+When is it ok to use a private repo? 
+
+* collaborators require a private repo for development.
+* You want to have content for the DART team only. 
+
+.. note::
+  Repositories in the NCAR Github organization are visible to all members of
+  the NCAR organization.
+
+If you want to use Github with a private version of the DART repo with your
+collaborators.  You can create a new private repository on Github, for example
+https://github.com/your-private-repo, and this new private repo as a remote.
+Follow the same conventions for :ref:`feature branch workflow <feature-branch>` 
+by creating a branch for you and your collaborators to use. 
+
+.. code-block:: text
+  
+  git clone https://github.com/NCAR/DART.git
+  cd DART
+  git checkout master
+  git checkout -b embargoed-feature
+  git remote add collab https://github.com/your-private-repo
+  git push -u collab embargoed-feature
+  
+In the above example, 
+
+https://github.com/your-private-repo
+    is the private repository
+    
+embargoed-feature
+    is the branch where the private development will be done
+    
+collab 
+    is the name of the remote
+
+To list all the remotes you have for a repository, use
+
+.. code-block:: text
+
+   git remote -v
+  
+
+

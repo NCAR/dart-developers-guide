@@ -6,6 +6,9 @@
 Welcome to the DART developers guide
 ==========================================
 
+Terminology
+-----------
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -13,5 +16,5 @@ Welcome to the DART developers guide
    dart-flow
    reviewing
    commit-messages
-
-
+   issues
+   ideal-rotarty-phone
