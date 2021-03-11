@@ -8,7 +8,7 @@ Github issues
 -------------
 
 Github issues are a way to keep track of enhancements, bugs, and discussions about code. 
-
+Use issues to:
 
 * Report at bug
 * Request/Propose a feature
@@ -17,7 +17,7 @@ Github issues are a way to keep track of enhancements, bugs, and discussions abo
 Labels
 ^^^^^^
 
-Github allows issues to be labeled. 
+Github allows issues to be labeled.  Here are some you may want to use:
 
 Bug
   Something is incorrect or not working
@@ -28,7 +28,8 @@ Backburner
 Science 
   A problem that needs science discussion to be resolved
 
-You may want to add your own labels, for example, if you are working a lot with WRF, you may want to add the label WRF so you can search for all issues realated to WRF.
+You may want to add your own labels, for example, if you are working a lot with 
+WRF, you may want to add the label WRF so you can search for all issues related to WRF.
 
 .. note
    If you are working on an issue, assign yourself the issue on Github.  

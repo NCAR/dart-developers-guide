@@ -3,18 +3,43 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the DART developers guide
+Welcome to the DART developers handbook
 ==========================================
 
-Terminology
------------
+Goal of this document
+----------------------
 
+A living document to describe the DART software workflow.  Our current workflow
+is using Github. 
+
+Things we don't have yet:
+
+* a project management system
+* a bug database
+
+Things we do have:
+
+* standups
+* issue tracing via Github
+* code review via pull requests on Github
+* this much code:
+
+.. image:: cloc.png
+  :width: 800
+  :alt: lines-of-code
+
+Contents
+---------
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    dart-flow
-   reviewing
-   commit-messages
    issues
+   bug-reports
+   example-spec
+   commit-messages
+   reviewing
    ideal-rotarty-phone
+   
+   

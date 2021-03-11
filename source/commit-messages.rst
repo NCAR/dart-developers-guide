@@ -12,7 +12,7 @@ What you select here will be the ‘author’ information for your commits.
   git config --global user.name “Margaret Hamilton”
   git config --global user.email mhamilton@nasa.gov
 
-Set the editor you want to use for commit messages, vim, nano, emacs, notepad++, 
+Set the editor you want to use for commit messages: vim, nano, emacs, notepad++, 
 whatever your favorite editor is. In this example, I am setting my editor for 
 commit messages to vim. 
 
@@ -51,5 +51,5 @@ For example,
 
 .. warning::
 
-	Commit messages are visible to the whole world. 
+	Commit messages are visible to the whole world on Github. 
         	

@@ -14,15 +14,14 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'DART developers guide'
-copyright = '2021, Helen Kershaw'
-author = 'Helen Kershaw'
+copyright = '2021, NCAR'
+author = 'Helen'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = '0.99'
 
 
 # -- General configuration ---------------------------------------------------
@@ -47,7 +46,7 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'furo'
+html_theme = 'nature'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
