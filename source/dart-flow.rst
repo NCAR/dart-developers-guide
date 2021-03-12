@@ -80,8 +80,8 @@ Create your feature branch from the master branch.
 where `new-feature` is the name of your feature branch.
 
 .. warning::
-  Don't name your branch after yourself, e.g `barbara-liskov-branch`. Pick a 
-  name that represents what you are working on, e.g. `clu-version-of-dart`.
+  Try not to name your branch after yourself, e.g `barbara-liskov`. Pick a 
+  name that represents what you are working on, e.g. `oop-version-of-filter`.
     
 
 To push your branch up to the main DART repo:
@@ -117,6 +117,8 @@ To keep your feature branch up to date with the master:
   Make sure you have committed any changes to your new-feature branch before 
   updating from the master  	
 
+Once your feature is ready for review, submit a :ref:`pull request <reviewing>`.
+
 Public development
 ------------------
 
@@ -133,7 +135,7 @@ When is it ok to use a private repo?
 
 If you want to use Github with a private version of the DART repo with your
 collaborators.  You can create a new private repository on Github, for example
-https://github.com/your-private-repo, and this new private repo as a remote.
+https://github.com/your-private-repo, and use this new private repo as a remote.
 Follow the same conventions for :ref:`feature branch workflow <feature-branch>` 
 by creating a branch for you and your collaborators to use. 
 

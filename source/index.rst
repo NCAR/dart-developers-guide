@@ -16,11 +16,12 @@ Things we don't have yet:
 
 * a project management system
 * a bug database
+* a release schedule
 
 Things we do have:
 
 * standups
-* issue tracing via Github
+* issue tracking via Github
 * code review via pull requests on Github
 * this much code:
 

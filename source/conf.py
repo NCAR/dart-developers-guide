@@ -16,12 +16,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'DART developers guide'
+project = 'DART developers handbook'
 copyright = '2021, NCAR'
 author = 'Helen'
 
 # The full version, including alpha/beta/rc tags
-release = '0.99'
+release = '0.9'
 
 
 # -- General configuration ---------------------------------------------------
