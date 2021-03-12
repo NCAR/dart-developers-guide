@@ -10,7 +10,7 @@ Directory structure:
     changes to the documemntation. 
     
 **docs**
-     is what is served on github pages.  Don't edit this directly. Use `make github`
+     is what is served on github pages.  Don't edit this directly. Use ``make github``
      to create docs.     
 
 
