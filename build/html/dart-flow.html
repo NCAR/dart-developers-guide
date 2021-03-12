@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DART flow &#8212; DART developers handbook 0.9 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tracking tasks" href="issues.html" />
+    <link rel="prev" title="Welcome to the DART developers handbook" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="issues.html" title="Tracking tasks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the DART developers handbook"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">DART developers handbook 0.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DART flow</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dart-flow">
+<span id="id1"></span><h1>DART flow<a class="headerlink" href="#dart-flow" title="Permalink to this headline">¶</a></h1>
+<p><strong>DART flow</strong> is the workflow to go from having an <strong>idea</strong> for a feature to getting
+the feature into the DART <strong>code</strong>, so your feature can be used <strong>do science</strong>.</p>
+<a class="reference internal image-reference" href="_images/dart-flow-pic.jpg"><img alt="dart-flow" src="_images/dart-flow-pic.jpg" style="width: 800px;" /></a>
+<ol class="arabic simple">
+<li><p>Create an <a class="reference internal" href="issues.html#issues"><span class="std std-ref">issue</span></a>.
+Describe the problem you are trying to fix. Currently we are using Github for
+issue tracking.</p></li>
+<li><p>Add a label to the issue
+The label helps prioritize the issue.  Is it a bug fix, is it a new feature,
+is it refactoring existing code?
+Use the label ‘back-burner’ for something  that is low priority</p></li>
+<li><p>Describe your solution in the issue.
+Give an estimation of how much code this will effect. Will your solution
+require changing several modules? The <a class="reference internal" href="example-spec.html#specs"><span class="std std-ref">writing specifications</span></a>
+section of this document gives an example of how to describe your solution.</p></li>
+<li><p>Get some feedback on your solution, the standup is a good place to ask for volunteers.
+This is a good time to have an in-person meeting to chat about your spec.</p></li>
+<li><p>Create a <a class="reference internal" href="#feature-branch"><span class="std std-ref">feature branch</span></a> to use for your solution.
+Once you are happy with your feature branch, push the branch up to the main
+DART repo and create a <a class="reference internal" href="reviewing.html#reviewing"><span class="std std-ref">pull request</span></a>.</p></li>
+<li><p>Be as helpful to your reviewers as you can.
+Only include changes relevant to your issue and avoid changes that are not
+relevant to the particular issue.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>master will be remained to <strong>main</strong> in the near future</p>
+</div>
+<div class="section" id="feature-branch-workflow">
+<span id="feature-branch"></span><h2>Feature Branch Workflow<a class="headerlink" href="#feature-branch-workflow" title="Permalink to this headline">¶</a></h2>
+<p>DART is using a Feature Branch Workflow. “The core idea behind the Feature
+Branch Workflow is that all feature development should take place in a dedicated
+branch instead of the master branch. This encapsulation makes it easy for
+multiple developers to work on a particular feature without disturbing the main
+codebase.” It also means, ideally, that the master branch will never contain broken
+code. Atlassian has a nice comparison of the various
+<a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows">workflows</a>
+people use.</p>
+</div>
+<div class="section" id="branch-naming-conventions">
+<h2>Branch naming conventions<a class="headerlink" href="#branch-naming-conventions" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>master</strong></dt><dd><p>This is the main branch.  It should always work.</p>
+</dd>
+<dt><strong>feature-branch</strong></dt><dd><p>Your feature branch should have a descriptive name which indicates what bug fix
+or feature the branch contains.  For example, a feature branch for adding a flu
+forecasting model could be called: <cite>flu-model</cite>.</p>
+</dd>
+<dt><strong>gh-pages</strong></dt><dd><p>This branch is used to serve the website dart.ucar.edu. It only has the website
+content.  To make changes to the website, follow the instructions on
+<a class="reference external" href="https://github.com/NCAR/dart-web">https://github.com/NCAR/dart-web</a></p>
+</dd>
+</dl>
+<p>Create your feature branch from the master branch.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NCAR/DART.git
+git checkout master
+git checkout -b new-feature
+</pre></div>
+</div>
+<p>where <cite>new-feature</cite> is the name of your feature branch.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Try not to name your branch after yourself, e.g <cite>barbara-liskov</cite>. Pick a
+name that represents what you are working on, e.g. <cite>oop-version-of-filter</cite>.</p>
+</div>
+<p>To push your branch up to the main DART repo:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git push -u origin new-feature
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The -u flag means your local copy will track the remote repo.
+It is no big deal if you don’t do it, but it is nice to have <cite>git status</cite>
+tell you “your branch is up to date with remote/new_branch_name” or
+“your branch is 2 commits behind remote/new_branch_name”</p>
+</div>
+</div>
+<div class="section" id="keeping-your-feature-branch-up-to-date-with-the-master">
+<h2>Keeping your feature branch up to date with the master<a class="headerlink" href="#keeping-your-feature-branch-up-to-date-with-the-master" title="Permalink to this headline">¶</a></h2>
+<p>As you are working on your feature branch, the master branch may have been
+updated.</p>
+<p>To keep your feature branch up to date with the master:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git checkout master
+git pull
+git checkout new-feature
+git merge master new-feature
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you have committed any changes to your new-feature branch before
+updating from the master</p>
+</div>
+<p>Once your feature is ready for review, submit a <a class="reference internal" href="reviewing.html#reviewing"><span class="std std-ref">pull request</span></a>.</p>
+</div>
+<div class="section" id="public-development">
+<h2>Public development<a class="headerlink" href="#public-development" title="Permalink to this headline">¶</a></h2>
+<p>In general, all DART development is public.</p>
+</div>
+<div class="section" id="private-development">
+<h2>Private development<a class="headerlink" href="#private-development" title="Permalink to this headline">¶</a></h2>
+<p>When is it ok to use a private repo?</p>
+<ul class="simple">
+<li><p>collaborators require a private repo for development.</p></li>
+<li><p>You want to have content for the DART team only.</p></li>
+</ul>
+<p>If you want to use Github with a private version of the DART repo with your
+collaborators.  You can create a new private repository on Github, for example
+<a class="reference external" href="https://github.com/your-private-repo">https://github.com/your-private-repo</a>, and use this new private repo as a remote.
+Follow the same conventions for <a class="reference internal" href="#feature-branch"><span class="std std-ref">feature branch workflow</span></a>
+by creating a branch for you and your collaborators to use.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NCAR/DART.git
+cd DART
+git checkout master
+git checkout -b embargoed-feature
+git remote add collab https://github.com/your-private-repo
+git push -u collab embargoed-feature
+</pre></div>
+</div>
+<p>In the above example,</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://github.com/your-private-repo">https://github.com/your-private-repo</a></dt><dd><p>is the private repository</p>
+</dd>
+<dt><strong>embargoed-feature</strong></dt><dd><p>is the branch where the private development will be done</p>
+</dd>
+<dt><strong>collab</strong></dt><dd><p>is the name of the remote</p>
+</dd>
+</dl>
+<p>To list all the remotes you have for a repository, use</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DART flow</a><ul>
+<li><a class="reference internal" href="#feature-branch-workflow">Feature Branch Workflow</a></li>
+<li><a class="reference internal" href="#branch-naming-conventions">Branch naming conventions</a></li>
+<li><a class="reference internal" href="#keeping-your-feature-branch-up-to-date-with-the-master">Keeping your feature branch up to date with the master</a></li>
+<li><a class="reference internal" href="#public-development">Public development</a></li>
+<li><a class="reference internal" href="#private-development">Private development</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to the DART developers handbook</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="issues.html"
+                        title="next chapter">Tracking tasks</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dart-flow.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="issues.html" title="Tracking tasks"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the DART developers handbook"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">DART developers handbook 0.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DART flow</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, NCAR.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>
