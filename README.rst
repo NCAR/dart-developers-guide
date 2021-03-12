@@ -33,22 +33,15 @@ To make the docs, in the root directory run:
 
 .. code:: text
 
-    make html
+    make github 
 
 To view the docs:
 
-
 .. code:: text
 
-   open build/html/index.html 
+   open docs/index.html 
 
 with your favorite browser.
-
-To make the docs for github (github pages)
-
-.. code:: text
-
-   make github
 
 `make github` builds the docs, then copies the output to /docs.  
 Whatever is in /docs is what will show up on github pages when your
