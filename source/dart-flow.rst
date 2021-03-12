@@ -74,6 +74,7 @@ Create your feature branch from the master branch.
 .. code-block:: text
   
   git clone https://github.com/NCAR/DART.git
+  cd DART
   git checkout master
   git checkout -b new-feature
 

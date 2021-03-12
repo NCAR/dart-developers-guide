@@ -23,7 +23,7 @@ Things we do have:
 * standups
 * issue tracking via Github
 * code review via pull requests on Github
-* this much code:
+* this many lines of code:
 
 .. image:: cloc.png
   :width: 800
