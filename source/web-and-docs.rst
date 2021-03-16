@@ -1,4 +1,4 @@
-documentationDART web presence
+DART web presence
 ==================
 
 
@@ -16,8 +16,8 @@ when new content is pushed to a branch.
 You can build the DART documentation locally using Sphinx. 
 
 
-Installing Sphinx
-^^^^^^^^^^^^^^^^^^^^^^^ 
+Installing Sphinx Locally
+^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
  
 To install Sphinx in a Python virtual environment:
@@ -43,9 +43,6 @@ To view the docs:
 
 with your favorite browser.
 
-
-https://ncar.github.io/dart-developers-guide/
-
 To deactivate the virtual environment
 
 .. code:: text
@@ -55,3 +52,14 @@ To deactivate the virtual environment
 
 Website 
 --------
+
+There are two repositories to be aware of for the DART website:
+
+https://github.com/NCAR/dart-web.git Is the repository used to build the site.
+
+The website is hosted via GitHub pages on dart.ucar.edu:
+
+https://github.com/NCAR/DART.git
+
+For instructions on building the website, read the README at https://github.com/NCAR/dart-web
+
