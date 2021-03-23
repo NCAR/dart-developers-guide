@@ -10,7 +10,7 @@ Github issues
 Github issues are a way to keep track of enhancements, bugs, and discussions about code. 
 Use issues to:
 
-* Report at bug
+* Report a :ref:`bug <bug>`
 * Request/Propose a feature
 
 
