@@ -65,17 +65,13 @@ DART repo and create a <a class="reference internal" href="reviewing.html#review
 Only include changes relevant to your issue and avoid changes that are not
 relevant to the particular issue.</p></li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>master will be remained to <strong>main</strong> in the near future</p>
-</div>
 <div class="section" id="feature-branch-workflow">
 <span id="feature-branch"></span><h2>Feature Branch Workflow<a class="headerlink" href="#feature-branch-workflow" title="Permalink to this headline">¶</a></h2>
 <p>DART is using a Feature Branch Workflow. “The core idea behind the Feature
 Branch Workflow is that all feature development should take place in a dedicated
-branch instead of the master branch. This encapsulation makes it easy for
+branch instead of the main branch. This encapsulation makes it easy for
 multiple developers to work on a particular feature without disturbing the main
-codebase.” It also means, ideally, that the master branch will never contain broken
+codebase.” It also means, ideally, that the main branch will never contain broken
 code. Atlassian has a nice comparison of the various
 <a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows">workflows</a>
 people use.</p>
@@ -83,7 +79,7 @@ people use.</p>
 <div class="section" id="branch-naming-conventions">
 <h2>Branch naming conventions<a class="headerlink" href="#branch-naming-conventions" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
-<dt><strong>master</strong></dt><dd><p>This is the main branch.  It should always work.</p>
+<dt><strong>main</strong></dt><dd><p>This is the main branch.  It should always work.</p>
 </dd>
 <dt><strong>feature-branch</strong></dt><dd><p>Your feature branch should have a descriptive name which indicates what bug fix
 or feature the branch contains.  For example, a feature branch for adding a flu
@@ -94,10 +90,10 @@ content.  To make changes to the website, follow the instructions on
 <a class="reference external" href="https://github.com/NCAR/dart-web">https://github.com/NCAR/dart-web</a></p>
 </dd>
 </dl>
-<p>Create your feature branch from the master branch.</p>
+<p>Create your feature branch from the main branch.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NCAR/DART.git
 cd DART
-git checkout master
+git checkout main
 git checkout -b new-feature
 </pre></div>
 </div>
@@ -119,21 +115,21 @@ tell you “your branch is up to date with remote/new_branch_name” or
 “your branch is 2 commits behind remote/new_branch_name”</p>
 </div>
 </div>
-<div class="section" id="keeping-your-feature-branch-up-to-date-with-the-master">
-<h2>Keeping your feature branch up to date with the master<a class="headerlink" href="#keeping-your-feature-branch-up-to-date-with-the-master" title="Permalink to this headline">¶</a></h2>
-<p>As you are working on your feature branch, the master branch may have been
+<div class="section" id="keeping-your-feature-branch-up-to-date-with-the-main">
+<h2>Keeping your feature branch up to date with the main<a class="headerlink" href="#keeping-your-feature-branch-up-to-date-with-the-main" title="Permalink to this headline">¶</a></h2>
+<p>As you are working on your feature branch, the main branch may have been
 updated.</p>
-<p>To keep your feature branch up to date with the master:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git checkout master
+<p>To keep your feature branch up to date with the main:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git checkout main
 git pull
 git checkout new-feature
-git merge master new-feature
+git merge main new-feature
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure you have committed any changes to your new-feature branch before
-updating from the master</p>
+updating from the main</p>
 </div>
 <p>Once your feature is ready for review, submit a <a class="reference internal" href="reviewing.html#reviewing"><span class="std std-ref">pull request</span></a>.</p>
 </div>
@@ -155,7 +151,7 @@ Follow the same conventions for <a class="reference internal" href="#feature-bra
 by creating a branch for you and your collaborators to use.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NCAR/DART.git
 cd DART
-git checkout master
+git checkout main
 git checkout -b embargoed-feature
 git remote add collab https://github.com/your-private-repo
 git push -u collab embargoed-feature
@@ -190,7 +186,7 @@ git push -u collab embargoed-feature
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DART flow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#feature-branch-workflow">Feature Branch Workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#branch-naming-conventions">Branch naming conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keeping-your-feature-branch-up-to-date-with-the-master">Keeping your feature branch up to date with the master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keeping-your-feature-branch-up-to-date-with-the-main">Keeping your feature branch up to date with the main</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#public-development">Public development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#private-development">Private development</a></li>
 </ul>
@@ -201,6 +197,7 @@ git push -u collab embargoed-feature
 <li class="toctree-l1"><a class="reference internal" href="commit-messages.html">Writing Commit Messages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reviewing.html">Pull requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ideal-rotarty-phone.html">Playground</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-and-docs.html">DART web presence</a></li>
 </ul>
 
   <h4>Previous topic</h4>

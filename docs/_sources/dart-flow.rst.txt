@@ -34,10 +34,6 @@ the feature into the DART **code**, so your feature can be used **do science**.
    relevant to the particular issue.  
     
 
-.. warning::
-
-	master will be remained to **main** in the near future
-
 .. _feature-branch:
 
 Feature Branch Workflow
@@ -45,9 +41,9 @@ Feature Branch Workflow
 
 DART is using a Feature Branch Workflow. "The core idea behind the Feature 
 Branch Workflow is that all feature development should take place in a dedicated
-branch instead of the master branch. This encapsulation makes it easy for 
+branch instead of the main branch. This encapsulation makes it easy for 
 multiple developers to work on a particular feature without disturbing the main 
-codebase." It also means, ideally, that the master branch will never contain broken
+codebase." It also means, ideally, that the main branch will never contain broken
 code. Atlassian has a nice comparison of the various 
 `workflows <https://www.atlassian.com/git/tutorials/comparing-workflows>`_ 
 people use.
@@ -55,7 +51,7 @@ people use.
 Branch naming conventions
 --------------------------
 
-**master** 
+**main** 
   This is the main branch.  It should always work.
   
 **feature-branch**
@@ -69,13 +65,13 @@ Branch naming conventions
   https://github.com/NCAR/dart-web
 
   
-Create your feature branch from the master branch. 
+Create your feature branch from the main branch. 
 
 .. code-block:: text
   
   git clone https://github.com/NCAR/DART.git
   cd DART
-  git checkout master
+  git checkout main
   git checkout -b new-feature
 
 where `new-feature` is the name of your feature branch.
@@ -99,24 +95,24 @@ To push your branch up to the main DART repo:
    "your branch is 2 commits behind remote/new_branch_name"
 
 
-Keeping your feature branch up to date with the master
+Keeping your feature branch up to date with the main
 -------------------------------------------------------
 
-As you are working on your feature branch, the master branch may have been 
+As you are working on your feature branch, the main branch may have been 
 updated.  
 
-To keep your feature branch up to date with the master:
+To keep your feature branch up to date with the main:
 
 .. code-block:: text
   
-  git checkout master
+  git checkout main
   git pull 
   git checkout new-feature 
-  git merge master new-feature
+  git merge main new-feature
 
 .. warning::
   Make sure you have committed any changes to your new-feature branch before 
-  updating from the master  	
+  updating from the main  	
 
 Once your feature is ready for review, submit a :ref:`pull request <reviewing>`.
 
@@ -144,7 +140,7 @@ by creating a branch for you and your collaborators to use.
   
   git clone https://github.com/NCAR/DART.git
   cd DART
-  git checkout master
+  git checkout main
   git checkout -b embargoed-feature
   git remote add collab https://github.com/your-private-repo
   git push -u collab embargoed-feature
