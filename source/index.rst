@@ -41,6 +41,7 @@ Contents
    example-spec
    commit-messages
    reviewing
+   releases
    ideal-rotarty-phone
    web-and-docs
    

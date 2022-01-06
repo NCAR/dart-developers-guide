@@ -32,7 +32,7 @@ the feature into the DART **code**, so your feature can be used **do science**.
 #. Be as helpful to your reviewers as you can.
    Only include changes relevant to your issue and avoid changes that are not 
    relevant to the particular issue.  
-    
+#. If your pull request is approved, merge into the main branch and create a `release <releases>`.    
 
 .. _feature-branch:
 
