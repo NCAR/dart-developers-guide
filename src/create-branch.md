@@ -12,7 +12,7 @@ git checkout -b new-feature
 where *new-feature* is the name of your feature branch.
 
 Try not to name your branch after yourself, e.g
-*[barbara-liskov*. Pick a name that represents what you are
+*barbara-liskov*. Pick a name that represents what you are
 working on, e.g. *oop-version-of-filter*.
 
 To push your branch up to the DART repo:
