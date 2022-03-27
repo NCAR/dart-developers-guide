@@ -1,0 +1,11 @@
+[book]
+authors = ["Helen Kershaw"]
+language = "en"
+multilingual = false
+src = "src"
+title = "DART Developers Guide"
+
+[output.html]
+git-repository-icon = "fa-github"
+git-repository-url = "https://github.com/NCAR/dart-developers-guide"
+site-url = "https://ncar.github.io/dart-developers-guide/"

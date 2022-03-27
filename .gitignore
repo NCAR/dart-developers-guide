@@ -1,4 +1,2 @@
-dev-guide
 .DS_Store
-build
-docs/.buildinfo
+book
