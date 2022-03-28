@@ -43,8 +43,8 @@ git checkout new-feature
 git merge main new-feature
 ```
 
-Make sure you have committed any changes to your new-feature branch
+Make sure you have [committed](./commit-messages.md) any changes to your new-feature branch
 before updating from the main
 
 Once your feature is ready for review, submit a
-[pull request](./reviewing.md)
+[pull request](./reviewing.md).

@@ -1,4 +1,4 @@
-## Public development
+# Public development
 
 In general, all DART development is public, either on the DART
 repository or a fork of the DART repository.
@@ -7,7 +7,7 @@ repository or a fork of the DART repository.
 
 When is it ok to use a private repo?
 
-- collaborators require a private repo for development.
+- Collaborators require a private repo for development.
 - You want to have content for the DART team only.
 
 If you want to use Github with a private version of the DART repo with
@@ -28,17 +28,11 @@ git push -u collab embargoed-feature
 
 In the above example,
 
-<https://github.com/your-private-repo>
+<https://github.com/your-private-repo> is the private repository.
 
-is the private repository
+**embargoed-feature** is the branch where the private development will be done.
 
-**embargoed-feature**
-
-is the branch where the private development will be done
-
-**collab**
-
-is the name of the remote
+**collab** is the name of the remote.
 
 To list all the remotes you have for a repository, use
 

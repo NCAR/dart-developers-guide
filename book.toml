@@ -3,7 +3,7 @@ authors = ["Helen Kershaw"]
 language = "en"
 multilingual = false
 src = "src"
-title = "DART Developers Guide"
+title = "DART Developer's Guide"
 
 [output.html]
 git-repository-icon = "fa-github"

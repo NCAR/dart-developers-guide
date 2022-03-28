@@ -1,4 +1,8 @@
-# Setting up your git environment
+# Using Git
+
+DART is under version control with Git. 
+
+## Setting up your git environment
 
 Set your username and email that you want to be linked with git. What
 you select here will be the 'author' information for your commits.
@@ -24,3 +28,20 @@ To display what your git settings are:
 ```
 git config --list
 ```
+
+## Setting your terminal prompt to display the branch
+
+For bash users you can add the following to your `~/.profile` file to 
+display the branch you have checked out.
+
+```bash
+# Git branch in prompt.
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="\u@\h \W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+```
+

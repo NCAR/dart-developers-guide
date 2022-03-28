@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>DART flow - DART Developers Guide</title>
+        <title>DART flow - DART Developer&#x27;s Guide</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html" class="active"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">1.4.</strong> Commiting your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> Github</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> Github Playground</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">5.</strong> DART web presence</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html" class="active"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">1.4.</strong> Committing your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> Github</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> Github Playground</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">5.</strong> DART web presence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="documentation.html"><strong aria-hidden="true">5.1.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="website.html"><strong aria-hidden="true">5.2.</strong> DART website</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Draft: DART</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -104,7 +104,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">DART Developers Guide</h1>
+                    <h1 class="menu-title">DART Developer&#x27;s Guide</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -143,28 +143,41 @@ feature to getting the feature into the DART <strong>code</strong>, so your feat
 can be used <strong>do science</strong>.</p>
 <p><img src="./images/dart-flow-pic.jpg" alt="dart-flow" /></p>
 <ol>
-<li>Create an <a href="./issues.html">issue</a>. Describe
-the problem you are trying to fix. Currently we are using Github for
-issue tracking.</li>
-<li>Add a label to the issue The label helps prioritize the issue. Is it
+<li>
+<p>Describe the problem you are trying to fix. Use Github
+<a href="./issues.html">issues</a> to track the problem. </p>
+</li>
+<li>
+<p>Add a label to the issue The label helps prioritize the issue. Is it
 a bug fix, is it a new feature, is it refactoring existing code? Use
-the label <code>back-burner</code> for something that is low priority</li>
-<li>Describe your solution in the issue. Give an estimation of how much
+the label <code>back-burner</code> for something that is low priority.</p>
+</li>
+<li>
+<p>Describe your solution in the issue. Give an estimation of how much
 code this will effect. Will your solution require changing several
 modules? The <a href="./example-spec.html">writing specifications</a> section of 
-this document gives an example of how to describe your solution.</li>
-<li>Get some feedback on your solution, the standup is a good place to
+this document gives an example of how to describe your solution.</p>
+</li>
+<li>
+<p>Get some feedback on your solution, the standup is a good place to
 ask for volunteers. This is a good time to have an in-person meeting
-to chat about your spec.</li>
-<li>Create a <a href="./feature-branch.html">feature branch</a> to use for your 
+to chat about your spec.</p>
+</li>
+<li>
+<p>Create a <a href="./feature-branch.html">feature branch</a> to use for your 
 solution. Once you are happy with your
 feature branch, push the branch up to the main DART repo and create
-a <a href="./pull_request.html">pull request</a></li>
-<li>Be as helpful to your reviewers as you can. Only include changes
+a <a href="./pull_request.html">pull request</a>.</p>
+</li>
+<li>
+<p>Be as helpful to your reviewers as you can. Only include changes
 relevant to your issue and avoid changes that are not relevant to
-the particular issue.</li>
-<li>If your pull request is approved, merge into the main branch and
-create a <a href="./releases.html">release</a></li>
+the particular issue.</p>
+</li>
+<li>
+<p>If your pull request is approved, merge into the main branch and
+create a <a href="./releases.html">release</a>.</p>
+</li>
 </ol>
 
                     </main>

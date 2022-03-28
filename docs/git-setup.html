@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Using git - DART Developers Guide</title>
+        <title>Using git - DART Developer&#x27;s Guide</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html" class="active"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">1.4.</strong> Commiting your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> Github</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> Github Playground</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">5.</strong> DART web presence</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html" class="active"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">1.4.</strong> Committing your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> Github</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> Github Playground</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">5.</strong> DART web presence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="documentation.html"><strong aria-hidden="true">5.1.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="website.html"><strong aria-hidden="true">5.2.</strong> DART website</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Draft: DART</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -104,7 +104,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">DART Developers Guide</h1>
+                    <h1 class="menu-title">DART Developer&#x27;s Guide</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -137,7 +137,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="setting-up-your-git-environment"><a class="header" href="#setting-up-your-git-environment">Setting up your git environment</a></h1>
+                        <h1 id="using-git"><a class="header" href="#using-git">Using Git</a></h1>
+<p>DART is under version control with Git. </p>
+<h2 id="setting-up-your-git-environment"><a class="header" href="#setting-up-your-git-environment">Setting up your git environment</a></h2>
 <p>Set your username and email that you want to be linked with git. What
 you select here will be the 'author' information for your commits.</p>
 <pre><code class="language-{.text}">git config --global user.name “Margaret Hamilton”
@@ -152,6 +154,18 @@ setting my editor for commit messages to vim.</p>
 means git will open vim when it wants you to write a commit message.</p>
 <p>To display what your git settings are:</p>
 <pre><code>git config --list
+</code></pre>
+<h2 id="setting-your-terminal-prompt-to-display-the-branch"><a class="header" href="#setting-your-terminal-prompt-to-display-the-branch">Setting your terminal prompt to display the branch</a></h2>
+<p>For bash users you can add the following to your <code>~/.profile</code> file to 
+display the branch you have checked out.</p>
+<pre><code class="language-bash"># Git branch in prompt.
+
+parse_git_branch() {
+  git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1=&quot;\u@\h \W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ &quot;
+
 </code></pre>
 
                     </main>

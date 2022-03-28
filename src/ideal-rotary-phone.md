@@ -1,10 +1,10 @@
 # Github Playground
 
 Ideal-rotary-phone is a no-consequence repo for trying out Github
-features. It is a good place to practice pull reviews.
+features. It is a good place to practice branching and pull reviews.
 
-The repository is visible only to members of the NCAR Github
-organization.
+The repository is visible only to members of the DART Github
+team and the occcasional intern or student.
 
 <https://github.com/NCAR/ideal-rotary-phone>
 

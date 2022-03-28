@@ -1,4 +1,4 @@
-# Welcome to the DART developers handbook
+# Welcome to the DART Developer's Guide 
 
 ## Goal of this document
 

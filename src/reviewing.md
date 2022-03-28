@@ -58,10 +58,12 @@ for the name of the branch
 ## Being Reviewed
 
 It can be quite difficult having someone review your code. Remember
-software engineering is *programming integrated over time*. Code reviews
+software engineering is *programming integrated over time* [1]. Code reviews
 are a process to produce better code and better developers. Karl
 Wieger's article [Humanizing Peer
 Reviews](https://www.processimpact.com/articles/humanizing_reviews.pdf)
 is a good read about overcoming some of the barriers to successful peer
 review.
 
+
+[1] WINTERS, T., MANSHRECK, T., & WRIGHT, H. (2020). Software engineering at Google: lessons learned from programming over time.

@@ -6,7 +6,7 @@
   - [Feature Branch Workflow](./feature-branch.md)
   - [Using git](./git-setup.md)
   - [Creating a feature branch](./create-branch.md)
-  - [Commiting your code](./commit-messages.md)
+  - [Committing your code](./commit-messages.md)
   - [Public vs. Private development](./private.md)
 - [Writing Specifications](./example-spec.md)
 - [Github](./github.md)
@@ -16,6 +16,9 @@
   - [Creating a Release](./releases.md)
 - [Github Playground](./ideal-rotary-phone.md)
 - [DART web presence](./web-and-docs.md)
+  - [Documentation](./documentation.md)
+  - [DART website](./website.md)
 - [Draft: Style Guide]()
+- [Draft: DART]()
 
 [Contributors](./contributors.md)

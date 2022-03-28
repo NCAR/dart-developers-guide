@@ -30,4 +30,4 @@ branch for adding a flu forecasting model could be called:
 
 This branch is used to serve the website dart.ucar.edu. It only has
 the website content. To make changes to the website, follow the
-instructions on <https://github.com/NCAR/dart-web>
+instructions on <https://github.com/NCAR/dart-web>.

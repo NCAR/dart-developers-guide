@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Commiting your code - DART Developers Guide</title>
+        <title>Committing your code - DART Developer&#x27;s Guide</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html" class="active"><strong aria-hidden="true">1.4.</strong> Commiting your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> Github</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> Github Playground</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">5.</strong> DART web presence</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html" class="active"><strong aria-hidden="true">1.4.</strong> Committing your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> Github</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> Github Playground</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">5.</strong> DART web presence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="documentation.html"><strong aria-hidden="true">5.1.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="website.html"><strong aria-hidden="true">5.2.</strong> DART website</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Draft: DART</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -104,7 +104,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">DART Developers Guide</h1>
+                    <h1 class="menu-title">DART Developer&#x27;s Guide</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -137,7 +137,15 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="writing-good-commit-messages"><a class="header" href="#writing-good-commit-messages">Writing Good Commit Messages</a></h1>
+                        <h1 id="commititing-your-code"><a class="header" href="#commititing-your-code">Commititing your code</a></h1>
+<p>How and when you commit your code can make life easier for other developers and your future self.
+In general, you should aim to make your code changes easy for other members of the DART team
+to review, cherry-pick, and revert. Ideally, you should:</p>
+<ul>
+<li>Separate functional changes from style changes</li>
+<li>Write good commit messages</li>
+</ul>
+<h2 id="writing-good-commit-messages"><a class="header" href="#writing-good-commit-messages">Writing Good Commit Messages</a></h2>
 <pre><code>one line short summary of the change
 
 more detail if needed on why you changed what
@@ -150,8 +158,19 @@ the Nazgûl perish, and his armies are thrown into such disarray that Aragorn's
 forces emerge victorious.
 </code></pre>
 <blockquote>
-<p>Commit messages are visible to the whole world on Github.</p>
+<p><strong>Be aware</strong>: commit messages are visible to the whole world on Github.</p>
 </blockquote>
+<p>You can link to github issues on <a href="https://github.com/NCAR/DART/issues">https://github.com/NCAR/DART/issues</a> from commit messages
+using the #issue-number syntax, for example:</p>
+<pre><code>bug-fix for #245 namelist values need to be the same type as variable
+</code></pre>
+<p>We do not have a strict convention such as <a href="http://commitizen.github.io/cz-cli/">commitizen</a>
+enfored for commits, but you may want to start your commit with one of the following to make 
+searching log files easier.</p>
+<pre><code>bug-fix:
+refactor:
+style:
+</code></pre>
 
                     </main>
 
