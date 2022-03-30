@@ -50,3 +50,7 @@ To create a release on Github:
 
 For a major release or critical bug-fix releases, you may want to email
 the dart-users group.
+
+> Once the code has been merged into main and released, you can delete the 
+feature-branch.
+
