@@ -151,11 +151,34 @@ build by clicking on <code>show all checks</code> then <code>details</code>.</p>
 source dev-guide/bin/activate
 pip install Sphinx
 </code></pre>
+<p>Copy the following example Makefile to your machine. </p>
+<p>Change the SOURCEDIR line to match where you have DART checked out.</p>
+<pre><code># Minimal makefile for Sphinx documentation
+#
+
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= sphinx-build
+SOURCEDIR     = /Users/hkershaw/DART/Refactor/Build_system/DART.buildit
+BUILDDIR      = dart-docs
+
+# Put it first so that &quot;make&quot; without argument is like &quot;make help&quot;.
+help:
+	@$(SPHINXBUILD) -M help &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+
+.PHONY: help Makefile
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# &quot;make mode&quot; option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+</code></pre>
 <p>To make the docs, run:</p>
 <pre><code>make html
 </code></pre>
 <p>To view the docs:</p>
-<pre><code>open html/index.html
+<pre><code>open dart-docs/html/README.html 
 </code></pre>
 <p>with your favorite browser.</p>
 <p>To deactivate the virtual environment</p>

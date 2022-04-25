@@ -9,7 +9,7 @@ Built using [mdbook](https://github.com/rust-lang/mdBook)
 `src` contains the markdown and image files.
 
 To build:
-./buildit
+./buildit.sh
 
 
 To view locally:
