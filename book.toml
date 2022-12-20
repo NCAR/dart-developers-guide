@@ -9,3 +9,8 @@ title = "DART Developer's Guide"
 git-repository-icon = "fa-github"
 git-repository-url = "https://github.com/NCAR/dart-developers-guide"
 site-url = "https://ncar.github.io/dart-developers-guide/"
+
+[output.html.playground]
+editable = false
+copyable = true
+line-numers = true
