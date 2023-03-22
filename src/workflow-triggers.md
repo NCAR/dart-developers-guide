@@ -1,5 +1,5 @@
 # Workflow Triggers
-Github Actions contains many possible triggers for starting your workflows. Many of which contain additional configuration options for more precise triggers. 
+GitHub Actions contains many possible triggers for starting your workflows. Many of which contain additional configuration options for more precise triggers. 
 
 Example trigger events to start your workflow include:
 - on push

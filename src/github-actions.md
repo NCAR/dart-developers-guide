@@ -1,8 +1,8 @@
 # GitHub Actions
 
-[Github Actions]((https://docs.github.com/en/actions/quickstart)) is a software development automation platform that is integrated into Github repositories. The platform allows for the creation of several types of automated tasks such as build, test, and deploy. A set of these tasks is referred to as a [workflow](./github-actions-workflow.md).
+[GitHub Actions]((https://docs.github.com/en/actions/quickstart)) is a software development automation platform that is integrated into GitHub repositories. The platform allows for the creation of several types of automated tasks such as build, test, and deploy. A set of these tasks is referred to as a [workflow](./github-actions-workflow.md).
 
-DART utilizes Github Actions to run automated tests when a pull requests is submitted.
+DART utilizes GitHub Actions to run automated tests when a pull requests is submitted.
 The workflow is called `action_on_pull_request.yml`.
 The current tests are building and running lorenz\_96 (mpi) and lorenz\_63 (no mpi).
 

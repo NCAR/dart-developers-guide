@@ -1,6 +1,6 @@
 # Creating a Release
 
-The DART releases are available on Github:
+The DART releases are available on GitHub:
 
 <https://github.com/NCAR/DART/releases>
 
@@ -25,7 +25,7 @@ extensions to the `vMAJOR.MINOR.PATCH` format.
 >Make sure your pull request is up-to-date with main before merging and
 >creating a release.
 
-To create a release on Github:
+To create a release on GitHub:
 
 1.  Decide on a tag number following the convention
     `vMAJOR.MINOR.PATCH`

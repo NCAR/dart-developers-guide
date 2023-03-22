@@ -6,7 +6,7 @@ can be used **do science**.
 
 ![dart-flow](./images/dart-flow-pic.jpg)
 
-1. Describe the problem you are trying to fix. Use Github
+1. Describe the problem you are trying to fix. Use GitHub
    [issues](./issues.md) to track the problem. 
 
 2. Add a label to the issue The label helps prioritize the issue. Is it

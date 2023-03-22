@@ -3,7 +3,7 @@
 ## Goal of this document
 
 A *living* document to describe the DART software workflow. Our current
-workflow is using Github.
+workflow is using GitHub.
 
 Things we don't have yet:
 
@@ -12,8 +12,8 @@ Things we don't have yet:
 Things we do have:
 
 -   standups
--   issue tracking via Github
--   code review via pull requests on Github
+-   issue tracking via GitHub
+-   code review via pull requests on GitHub
 -   this many lines of code:
 
 ![lines-of-code](./images/cloc.png)

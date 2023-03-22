@@ -1,11 +1,11 @@
-# Github
+# GitHub
 
-DART is hosted on Github
+DART is hosted on GitHub
 
 <https://github.com/NCAR/DART>
 
 As a member of the NCAR organization you can create public and
-private repositories under the NCAR Github organization
+private repositories under the NCAR GitHub organization
 
 <https://github.com/NCAR>
 
@@ -14,13 +14,13 @@ The DART team is:
 <https://github.com/orgs/NCAR/teams/dart>
 
 If you are working with people outside the DART team, for example with
-summer interns or external collaborators, you may want to create a Github
+summer interns or external collaborators, you may want to create a GitHub
 team to manage repository access. For example the team [dart-siparcs](https://github.com/orgs/NCAR/teams/dart-siparcs)
 was used for a 2021 SiParCS project.  
 
 
 There are four main ways developers and users interact with each other
-on Github:
+on GitHub:
 
 - [Issues](./issues.md)
 - [Bug reports](./bug-reports.md)

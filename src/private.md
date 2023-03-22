@@ -10,8 +10,8 @@ When is it ok to use a private repo?
 - Collaborators require a private repo for development.
 - You want to have content for the DART team only.
 
-If you want to use Github with a private version of the DART repo with
-your collaborators. You can create a new private repository on Github,
+If you want to use GitHub with a private version of the DART repo with
+your collaborators. You can create a new private repository on GitHub,
 for example <https://github.com/your-private-repo>, and use this new
 private repo as a remote. Follow the same conventions for
 [feature branch workflow](./feature-branch.md)

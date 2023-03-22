@@ -1,11 +1,11 @@
 # Workflows
 
-GitHub Actions workflows are configured with `YAML` files containing key-value pairs. Keys are the labels that the Github Action [runners](workflow-runners.md) interpret, and the values are arguments for the specific labels.
+GitHub Actions workflows are configured with `YAML` files containing key-value pairs. Keys are the labels that the GitHub Action [runners](workflow-runners.md) interpret, and the values are arguments for the specific labels.
 
-Example Github Actions `YAML` file:
+Example GitHub Actions `YAML` file:
 
 ```yaml
-name: Example Github Actions YAML Structure
+name: Example GitHub Actions YAML Structure
 run-name: ${{ github.actor }} triggered workflow via Push
 
 on: push                                     # trigger workflow on Push to repo
@@ -19,7 +19,7 @@ jobs:
 ```
 
 Workflow `YAML` files must be placed inside the repository's `.github/workflows/` directory.
-Results and logs of your workflows are located in the ['Actions' tab](https://github.com/NCAR/DART/actions) of your Github Repository.
+Results and logs of your workflows are located in the ['Actions' tab](https://github.com/NCAR/DART/actions) of your GitHub Repository.
 
 This document only aims to give a brief overview of GitHub action workflows. For indepth documentation visit [docs.github.com](https://docs.github.com/en/actions/using-workflows/about-workflows).
 

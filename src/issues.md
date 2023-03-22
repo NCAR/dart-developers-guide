@@ -1,6 +1,6 @@
-# Tracking tasks with Github issues
+# Tracking tasks with GitHub issues
 
-Github issues are a way to keep track of enhancements, bugs, and
+GitHub issues are a way to keep track of enhancements, bugs, and
 discussions about code. Use issues to:
 
 - Report a [bug](./bug-reports.md)
@@ -8,7 +8,7 @@ discussions about code. Use issues to:
 
 ### Labels
 
-Github allows issues to be labeled. Here are some you may want to use:
+GitHub allows issues to be labeled. Here are some you may want to use:
 
 **Bug** : Something is incorrect or not working
 

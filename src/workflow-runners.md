@@ -1,5 +1,5 @@
 # Workflow Runners
-Github Actions refers to the virtual machines that your workflows run on top of as runners. These are hosted by Github and their availability depends on the repo's organization tier. Each [workflow job](workflow-jobs.md) must specify their runner instance type.
+GitHub Actions refers to the virtual machines that your workflows run on top of as runners. These are hosted by GitHub and their availability depends on the repo's organization tier. Each [workflow job](workflow-jobs.md) must specify their runner instance type.
 
 Specific types of runners is specified by the `runs-on:` key and can be chosen from this list of [runner instances](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 

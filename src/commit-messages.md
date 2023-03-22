@@ -26,7 +26,7 @@ the Nazgûl perish, and his armies are thrown into such disarray that Aragorn's
 forces emerge victorious.
 ```
 
-> **Be aware**: commit messages are visible to the whole world on Github.
+> **Be aware**: commit messages are visible to the whole world on GitHub.
 
 
 You can link to github issues on <https://github.com/NCAR/DART/issues> from commit messages
