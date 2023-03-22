@@ -5,10 +5,9 @@
 A *living* document to describe the DART software workflow. Our current
 workflow is using Github.
 
-Things we don\'t have yet:
+Things we don't have yet:
 
 -   a project management system
--   a release schedule
 
 Things we do have:
 
