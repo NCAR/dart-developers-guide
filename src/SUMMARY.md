@@ -26,6 +26,7 @@
     - [Requirements](./comp-act-requirements.md)
     - [Usage](./comp-act-usage.md)
     - [Composites](./comp-act-yaml.md)
+- [DART Docker](./containers.md)
 - [DART web presence](./web-and-docs.md)
   - [Documentation](./documentation.md)
   - [DART website](./website.md)
