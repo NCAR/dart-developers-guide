@@ -14,3 +14,6 @@ site-url = "https://ncar.github.io/dart-developers-guide/"
 editable = false
 copyable = true
 line-numers = true
+
+[output.html.fold]
+enable = true

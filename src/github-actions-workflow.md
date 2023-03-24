@@ -1,6 +1,6 @@
 # Workflows
 
-GitHub Actions workflows are configured with `YAML` files containing key-value pairs. Keys are the labels that the GitHub Action [runners](workflow-runners.md) interpret, and the values are arguments for the specific labels.
+GitHub Actions workflows are configured with `YAML` files. 
 
 Example GitHub Actions `YAML` file:
 
