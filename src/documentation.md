@@ -31,7 +31,7 @@ Change the SOURCEDIR line to match where you have DART checked out.
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?=
+SPHINXOPTS    ?= -n
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = /Users/hkershaw/DART/Refactor/Build_system/DART.buildit
 BUILDDIR      = dart-docs
