@@ -15,6 +15,8 @@
   - [Pull Requests](./reviewing.md)
   - [Creating a Release](./releases.md)
 - [GitHub Playground](./ideal-rotary-phone.md)
+- [Dealing with Users](./users.md)
+  - [User reported problems](./people-debugging.md)
 - [GitHub Actions](./github-actions.md)
   - [Workflows](./github-actions-workflow.md)
     - [Triggers](./workflow-triggers.md)

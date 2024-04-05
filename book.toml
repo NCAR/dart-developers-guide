@@ -16,4 +16,4 @@ copyable = true
 line-numers = true
 
 [output.html.fold]
-enable = true
+enable = false
