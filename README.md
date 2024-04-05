@@ -22,4 +22,4 @@ git add docs
 git commit -m 'something sensible'
 git push origin main
 ```
-
+Note also commit your changes to src.
