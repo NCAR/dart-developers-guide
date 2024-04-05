@@ -650,13 +650,15 @@ discussion.</p>
 <p>Find out which version of DART a person is using. Ask them to send you the output of</p>
 <pre><code>git describe --tags
 </code></pre>
-<p>The output will give you the following information:</p>
-<p>version: v11.4.1
-number of commits the user has made to this version: 1</p>
+<p>The output will look something like this:</p>
 <pre><code>v11.4.0-1-ge74ab9573
 </code></pre>
-<p>Note the use of --tags in the git describe command. GitHub releases are lightweight tags, rather 
-than annotated tags.  If you omit the --tags you'll get the number of commits since the last 
+<p>In this example:<br />
+version: v11.4.1<br />
+number of commits the user has made to this version: 1</p>
+<p>So the user has made and committed changes to DART.</p>
+<p>Note the use of <code>--tags</code> in the git describe command. GitHub releases are lightweight tags, rather 
+than annotated tags.  If you omit the <code>--tags</code> you'll get the number of commits since the last 
 annotated tag:</p>
 <pre><code>v9.12.refactored-1933-g27f85ee47
 </code></pre>
@@ -664,9 +666,14 @@ annotated tag:</p>
 <pre><code>fatal: No names found, cannot describe anything.
 </code></pre>
 <p>There are no tags in the repo. The user has forked dart with only the main branch, no branches
-or tags. </p>
+or tags.  Ask the user to send the output of <code>git log</code> to get some information on which version
+of the code they are using.</p>
+<blockquote>
+<p>be aware that we occasionally have users who are still using a version of
+DART checked out from an svn repositiory.</p>
+</blockquote>
 <p>The default option for GitHub forks is main branch only.  Unfortunately this means the 
-tags are not part of the fork:</p>
+tags are not part of the fork when using the default options:</p>
 <p><img src="images/default-main-only.png" alt="main-only" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="github-actions"><a class="header" href="#github-actions">GitHub Actions</a></h1>
 <p><a href="(https://docs.github.com/en/actions/quickstart)">GitHub Actions</a> is a software development automation platform that is integrated into GitHub repositories. The platform allows for the creation of several types of automated tasks such as build, test, and deploy. A set of these tasks is referred to as a <a href="./github-actions-workflow.html">workflow</a>.</p>
