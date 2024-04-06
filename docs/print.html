@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>DART Developer&#x27;s Guide</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -17,25 +19,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,50 +57,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Welcome</a></li><li class="chapter-item expanded "><a href="dart-flow.html"><strong aria-hidden="true">1.</strong> DART flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="feature-branch.html"><strong aria-hidden="true">1.1.</strong> Feature Branch Workflow</a></li><li class="chapter-item expanded "><a href="git-setup.html"><strong aria-hidden="true">1.2.</strong> Using git</a></li><li class="chapter-item expanded "><a href="create-branch.html"><strong aria-hidden="true">1.3.</strong> Creating a feature branch</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">1.4.</strong> Committing your code</a></li><li class="chapter-item expanded "><a href="private.html"><strong aria-hidden="true">1.5.</strong> Public vs. Private development</a></li></ol></li><li class="chapter-item expanded "><a href="example-spec.html"><strong aria-hidden="true">2.</strong> Writing Specifications</a></li><li class="chapter-item expanded "><a href="github.html"><strong aria-hidden="true">3.</strong> GitHub</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="issues.html"><strong aria-hidden="true">3.1.</strong> Tracking tasks</a></li><li class="chapter-item expanded "><a href="bug-reports.html"><strong aria-hidden="true">3.2.</strong> Reporting bugs</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">3.3.</strong> Pull Requests</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.4.</strong> Creating a Release</a></li></ol></li><li class="chapter-item expanded "><a href="ideal-rotary-phone.html"><strong aria-hidden="true">4.</strong> GitHub Playground</a></li><li class="chapter-item expanded "><a href="users.html"><strong aria-hidden="true">5.</strong> Dealing with Users</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="people-debugging.html"><strong aria-hidden="true">5.1.</strong> User reported problems</a></li></ol></li><li class="chapter-item expanded "><a href="github-actions.html"><strong aria-hidden="true">6.</strong> GitHub Actions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="github-actions-workflow.html"><strong aria-hidden="true">6.1.</strong> Workflows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="workflow-triggers.html"><strong aria-hidden="true">6.1.1.</strong> Triggers</a></li><li class="chapter-item expanded "><a href="workflow-runners.html"><strong aria-hidden="true">6.1.2.</strong> Runners</a></li><li class="chapter-item expanded "><a href="workflow-jobs.html"><strong aria-hidden="true">6.1.3.</strong> Jobs</a></li><li class="chapter-item expanded "><a href="workflow-testing.html"><strong aria-hidden="true">6.1.4.</strong> Testing</a></li><li class="chapter-item expanded "><a href="tidbits.html"><strong aria-hidden="true">6.1.5.</strong> Tidbits</a></li></ol></li><li class="chapter-item expanded "><a href="github-actions-composites.html"><strong aria-hidden="true">6.2.</strong> Composite Actions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="comp-act-requirements.html"><strong aria-hidden="true">6.2.1.</strong> Requirements</a></li><li class="chapter-item expanded "><a href="comp-act-usage.html"><strong aria-hidden="true">6.2.2.</strong> Usage</a></li><li class="chapter-item expanded "><a href="comp-act-yaml.html"><strong aria-hidden="true">6.2.3.</strong> Composites</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="containers.html"><strong aria-hidden="true">7.</strong> DART Docker Containers</a></li><li class="chapter-item expanded "><a href="web-and-docs.html"><strong aria-hidden="true">8.</strong> DART Web Presence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="documentation.html"><strong aria-hidden="true">8.1.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="website.html"><strong aria-hidden="true">8.2.</strong> DART website</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Draft: Style Guide</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> Draft: DART</div></li><li class="chapter-item expanded affix "><a href="contributors.html">Contributors</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -114,6 +151,7 @@
                         <a href="https://github.com/NCAR/dart-developers-guide" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -127,8 +165,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -162,7 +201,7 @@ can be used <strong>do science</strong>.</p>
 <ol>
 <li>
 <p>Describe the problem you are trying to fix. Use GitHub
-<a href="./issues.html">issues</a> to track the problem. </p>
+<a href="./issues.html">issues</a> to track the problem.</p>
 </li>
 <li>
 <p>Add a label to the issue The label helps prioritize the issue. Is it
@@ -172,7 +211,7 @@ the label <code>back-burner</code> for something that is low priority.</p>
 <li>
 <p>Describe your solution in the issue. Give an estimation of how much
 code this will effect. Will your solution require changing several
-modules? The <a href="./example-spec.html">writing specifications</a> section of 
+modules? The <a href="./example-spec.html">writing specifications</a> section of
 this document gives an example of how to describe your solution.</p>
 </li>
 <li>
@@ -181,7 +220,7 @@ ask for volunteers. This is a good time to have an in-person meeting
 to chat about your spec.</p>
 </li>
 <li>
-<p>Create a <a href="./feature-branch.html">feature branch</a> to use for your 
+<p>Create a <a href="./feature-branch.html">feature branch</a> to use for your
 solution. Once you are happy with your
 feature branch, push the branch up to the main DART repo and create
 a <a href="./pull_request.html">pull request</a>.</p>
@@ -197,13 +236,13 @@ create a <a href="./releases.html">release</a>.</p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="feature-branch-workflow"><a class="header" href="#feature-branch-workflow">Feature Branch Workflow</a></h1>
-<p>DART is using a Feature Branch Workflow. </p>
+<p>DART is using a Feature Branch Workflow.</p>
 <blockquote>
-<p>&quot;The core idea behind the
+<p>"The core idea behind the
 Feature Branch Workflow is that all feature development should take
 place in a dedicated branch instead of the main branch. This
 encapsulation makes it easy for multiple developers to work on a
-particular feature without disturbing the main codebase.&quot;</p>
+particular feature without disturbing the main codebase."</p>
 </blockquote>
 <p>It also means, ideally, that the main branch will never contain broken code.
 Atlassian has a nice comparison of the various
@@ -222,7 +261,7 @@ branch for adding a flu forecasting model could be called:
 the website content. To make changes to the website, follow the
 instructions on <a href="https://github.com/NCAR/dart-web">https://github.com/NCAR/dart-web</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-git"><a class="header" href="#using-git">Using Git</a></h1>
-<p>DART is under version control with Git. </p>
+<p>DART is under version control with Git.</p>
 <h2 id="setting-up-your-git-environment"><a class="header" href="#setting-up-your-git-environment">Setting up your git environment</a></h2>
 <p>Set your username and email that you want to be linked with git. What
 you select here will be the 'author' information for your commits.</p>
@@ -240,7 +279,7 @@ means git will open vim when it wants you to write a commit message.</p>
 <pre><code>git config --list
 </code></pre>
 <h2 id="setting-your-terminal-prompt-to-display-the-branch"><a class="header" href="#setting-your-terminal-prompt-to-display-the-branch">Setting your terminal prompt to display the branch</a></h2>
-<p>For bash users you can add the following to your <code>~/.profile</code> file to 
+<p>For bash users you can add the following to your <code>~/.profile</code> file to
 display the branch you have checked out.</p>
 <pre><code class="language-bash"># Git branch in prompt.
 
@@ -248,7 +287,7 @@ parse_git_branch() {
   git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-export PS1=&quot;\u@\h \W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ &quot;
+export PS1="\u@\h \W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="creating-a-feature-branch"><a class="header" href="#creating-a-feature-branch">Creating a feature branch</a></h1>
@@ -267,9 +306,9 @@ working on, e.g. <em>oop-version-of-filter</em>.</p>
 </code></pre>
 <p>Note</p>
 <p>The -u flag means your local copy will track the remote repo. It is no
-big deal if you don't do it, but it is nice to have <code>git status</code> tell you &quot;your branch is up to date with
-remote/new_branch_name&quot; or &quot;your branch is 2 commits behind
-remote/new_branch_name&quot;</p>
+big deal if you don't do it, but it is nice to have <code>git status</code> tell you "your branch is up to date with
+remote/new_branch_name" or "your branch is 2 commits behind
+remote/new_branch_name"</p>
 <h2 id="keeping-your-feature-branch-up-to-date-with-the-main"><a class="header" href="#keeping-your-feature-branch-up-to-date-with-the-main">Keeping your feature branch up to date with the main</a></h2>
 <p>As you are working on your feature branch, the main branch may have been
 updated.</p>
@@ -311,7 +350,7 @@ using the #issue-number syntax, for example:</p>
 <pre><code>bug-fix for #245 namelist values need to be the same type as variable
 </code></pre>
 <p>We do not have a strict convention such as <a href="http://commitizen.github.io/cz-cli/">commitizen</a>
-enfored for commits, but you may want to start your commit with one of the following to make 
+enfored for commits, but you may want to start your commit with one of the following to make
 searching log files easier.</p>
 <pre><code>bug-fix:
 refactor:
@@ -348,7 +387,7 @@ git push -u collab embargoed-feature
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="writing-specifications"><a class="header" href="#writing-specifications">Writing Specifications</a></h1>
 <blockquote>
-<p>The goal is software engineering is to solve problems. 
+<p>The goal is software engineering is to solve problems.
 Code is one part of this.</p>
 </blockquote>
 <p>A spec outlines how you are going to solve a particular technical
@@ -397,17 +436,17 @@ movie and much of the computation will be done in the cloud.</p>
 <h2 id="terminology"><a class="header" href="#terminology">Terminology</a></h2>
 <p>Define any terminology that someone reading the spec needs to know. For
 example,</p>
-<p><strong>Zarr</strong> : A file format for storing chunked, compressed arrays 
+<p><strong>Zarr</strong> : A file format for storing chunked, compressed arrays
 that plays nicely with cloud storage.</p>
 <h2 id="functional-specification"><a class="header" href="#functional-specification">Functional Specification</a></h2>
 <p>This describes the expected behavior of the system. Its purpose is to
 describe how a user will interact with the system. One of the uses for a
 functional spec is in designing tests, because the tests should check
 the expected behavior of the system.</p>
-<p><strong>Default behavior</strong> : </p>
+<p><strong>Default behavior</strong> :</p>
 <p>What the system will do.</p>
-<p><strong>User options</strong> : </p>
-<p>What options a user can choose, and what is the 
+<p><strong>User options</strong> :</p>
+<p>What options a user can choose, and what is the
 expected behavior for each option.</p>
 <p>You may want to write the functional spec in the form of user stories:</p>
 <blockquote>
@@ -451,12 +490,12 @@ on GitHub:</p>
 <li><a href="./releases.html">Releases</a></li>
 </ul>
 <p>At the top level of the DART repositroy is a directory <code>.github</code>.  This
-contains the templates for pull requests and issues. </p>
+contains the templates for pull requests and issues.</p>
 <p><code>./github/pull_request_template.md</code> is the template for pull requests.</p>
 <p><code>./github/ISSUE_TEMPLATE/bug_report.md</code> is the template for bug reports.</p>
-<p><code>./github/ISSUE_TEMPLATE/feature_request.md</code> is the template for feature requests. </p>
+<p><code>./github/ISSUE_TEMPLATE/feature_request.md</code> is the template for feature requests.</p>
 <p>Blank issues are enabled on the DART repository.  The templates control what
-shows up when a user clicks &quot;bug-report&quot; or &quot;feature request&quot;.</p>
+shows up when a user clicks "bug-report" or "feature request".</p>
 <p><img src="./images/template.png" alt="templates" /></p>
 <p>If you want to edit the <code>*.md</code> templates and preview the changes, try the edits
 out on a fork of DART.</p>
@@ -470,7 +509,7 @@ discussions about code. Use issues to:</p>
 <h3 id="labels"><a class="header" href="#labels">Labels</a></h3>
 <p>GitHub allows issues to be labeled. Here are some you may want to use:</p>
 <p><strong>Bug</strong> : Something is incorrect or not working</p>
-<p><strong>Backburner</strong> : A problem that is very low priority, but might be 
+<p><strong>Backburner</strong> : A problem that is very low priority, but might be
 worked on in the future</p>
 <p><strong>Science</strong> : A problem that needs science discussion to be resolved</p>
 <p>You may want to add your own labels, for example, if you are working a
@@ -509,9 +548,9 @@ smallest number of observations, the fewest time steps, the lowest
 resolution model.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pull-requests"><a class="header" href="#pull-requests">Pull requests</a></h1>
-<p>The main branch of DART is protected.  New code needs to be submitted as 
+<p>The main branch of DART is protected.  New code needs to be submitted as
 pull request.  At least one approval from a member of the DART team is needed
-to merge code into main. The process to go from a pull request to released 
+to merge code into main. The process to go from a pull request to released
 code is:</p>
 <ul>
 <li>review [reject, request changes, approve]</li>
@@ -571,11 +610,12 @@ versioning</a> with a v at the start, e.g. v9.10.11.</p>
 <pre><code>vMAJOR.MINOR.PATCH
 </code></pre>
 <p>Given a version number vMAJOR.MINOR.PATCH, increment in the following way:</p>
-<table><thead><tr><th></th><th></th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th></th></tr></thead><tbody>
 <tr><td>MAJOR</td><td>version when you make incompatible API changes</td></tr>
 <tr><td>MINOR</td><td>version when you add functionality in a backwards compatible manner</td></tr>
 <tr><td>PATCH</td><td>version when you make backwards compatible bug fixes.</td></tr>
 </tbody></table>
+</div>
 <p>You may want to use additional labels for pre-release or other code as
 extensions to the <code>vMAJOR.MINOR.PATCH</code> format.</p>
 <blockquote>
@@ -599,7 +639,7 @@ changes.</p>
 <p>Merge into main</p>
 </li>
 <li>
-<p>Create a release on GitHub from the main branch, by clicking on 
+<p>Create a release on GitHub from the main branch, by clicking on
 <code>Draft a new release</code></p>
 <p><img src="./images/new-release.png" alt="draft-new-release" /></p>
 </li>
@@ -616,7 +656,7 @@ changes.</p>
 <p>For a major release or critical bug-fix releases, you may want to email
 the dart-users group.</p>
 <blockquote>
-<p>Once the code has been merged into main and released, you can delete the 
+<p>Once the code has been merged into main and released, you can delete the
 feature-branch.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="github-playground"><a class="header" href="#github-playground">GitHub Playground</a></h1>
@@ -629,7 +669,7 @@ team and the occcasional intern or student.</p>
 git and GitHub without having to think about creating sensible code.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dealing-with-users"><a class="header" href="#dealing-with-users">Dealing with users</a></h1>
 <p>Users are people who use DART. They may also develop their own code and/or scripts.</p>
-<p>There are several ways users can communicate with us. </p>
+<p>There are several ways users can communicate with us.</p>
 <ul>
 <li>User support requests emailed dart@ucar.edu</li>
 <li>Direct email/meeting with DAReS staff</li>
@@ -638,7 +678,7 @@ git and GitHub without having to think about creating sensible code.</p>
 </ul>
 <p>GitHub issues are for bug reports and features for the code. If people are using GitHub
 issues for support requests, direct the user to dart@ucar.edu and close the issue.
-If a GitHub issue is not a clear issue or feature request, you can convert the issue to a 
+If a GitHub issue is not a clear issue or feature request, you can convert the issue to a
 discussion.</p>
 <p>Things we do not have:</p>
 <ul>
@@ -647,6 +687,28 @@ discussion.</p>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="user-reported-problems"><a class="header" href="#user-reported-problems">User reported problems</a></h1>
 <p>Here are some tips for working with users when they are reporting problems:</p>
+<ul>
+<li>Isolate the problem(s) the user is having. Often a by the time a
+person reaches out for help they have a few problems, and they
+may have made edits to the code trying to fix their problems.</li>
+<li>Find out which version of DART they are using. The problem may have been fixed already in a newer version of DART.</li>
+<li>Can you reproduce the problem on the latest (main) version of DART?</li>
+<li>If you confirm that is a bug, file a bug report following the bug report template.</li>
+<li>Create as small an example as possible that reproduces the bug. The goal is to get a reproducer that runs as fast as possible and uses
+as few  resources as possible.
+<ul>
+<li>The smallest number of observations</li>
+<li>The fewest time steps</li>
+<li>The lowest resolution model</li>
+<li>The fewest number of mpi tasks</li>
+<li>Running as little code as possible, e.g. run filter rather than
+running cime, cesm models, and filter.</li>
+</ul>
+</li>
+<li>Follow <a href="./dart-flow.html">DART Flow</a> with your collegues to tackle
+the bug.</li>
+</ul>
+<h2 id="gathering-information-from-the-user"><a class="header" href="#gathering-information-from-the-user">Gathering information from the user</a></h2>
 <p>Find out which version of DART a person is using. Ask them to send you the output of</p>
 <pre><code>git describe --tags
 </code></pre>
@@ -657,8 +719,8 @@ discussion.</p>
 version: v11.4.1<br />
 number of commits the user has made to this version: 1</p>
 <p>So the user has made and committed changes to DART.</p>
-<p>Note the use of <code>--tags</code> in the git describe command. GitHub releases are lightweight tags, rather 
-than annotated tags.  If you omit the <code>--tags</code> you'll get the number of commits since the last 
+<p>Note the use of <code>--tags</code> in the git describe command. GitHub releases are lightweight tags, rather
+than annotated tags.  If you omit the <code>--tags</code> you'll get the number of commits since the last
 annotated tag:</p>
 <pre><code>v9.12.refactored-1933-g27f85ee47
 </code></pre>
@@ -672,7 +734,7 @@ of the code they are using.</p>
 <p>be aware that we occasionally have users who are still using a version of
 DART checked out from an svn repositiory.</p>
 </blockquote>
-<p>The default option for GitHub forks is main branch only.  Unfortunately this means the 
+<p>The default option for GitHub forks is main branch only.  Unfortunately this means the
 tags are not part of the fork when using the default options:</p>
 <p><img src="images/default-main-only.png" alt="main-only" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="github-actions"><a class="header" href="#github-actions">GitHub Actions</a></h1>
@@ -691,7 +753,7 @@ The current tests are building and running lorenz_96 (mpi) and lorenz_63 (no mpi
 <p>Aim to beat 89s with any tests you add.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="workflows"><a class="header" href="#workflows">Workflows</a></h1>
-<p>GitHub Actions workflows are configured with <code>YAML</code> files. </p>
+<p>GitHub Actions workflows are configured with <code>YAML</code> files.</p>
 <p>Example GitHub Actions <code>YAML</code> file:</p>
 <pre><code class="language-yaml">name: Example GitHub Actions YAML Structure
 run-name: ${{ github.actor }} triggered workflow via Push
@@ -709,7 +771,7 @@ jobs:
 Results and logs of your workflows are located in the <a href="https://github.com/NCAR/DART/actions">'Actions' tab</a> of your GitHub Repository.</p>
 <p>This document only aims to give a brief overview of GitHub action workflows. For indepth documentation visit <a href="https://docs.github.com/en/actions/using-workflows/about-workflows">docs.github.com</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="workflow-triggers"><a class="header" href="#workflow-triggers">Workflow Triggers</a></h1>
-<p>GitHub Actions contains many possible triggers for starting your workflows. </p>
+<p>GitHub Actions contains many possible triggers for starting your workflows.</p>
 <p>Example trigger events to start your workflow include:</p>
 <ul>
 <li>on push</li>
@@ -738,11 +800,11 @@ Results and logs of your workflows are located in the <a href="https://github.co
 <div style="break-before: page; page-break-before: always;"></div><h1 id="workflow-runners"><a class="header" href="#workflow-runners">Workflow Runners</a></h1>
 <p>Runners are the machines that execute jobs in a GitHub Actions workflow. Runners are hosted by GitHub and what is available depends on the GitHub orgainizaion tier ($$$). Each <a href="workflow-jobs.html">workflow job</a> must specify their runner instance type.</p>
 <p>The runners is specified by <code>runs-on:</code>  and can be chosen from this list of <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">runner instances</a>.</p>
-<p>For DART's <code>action_on_pull_request.yml</code> workflow, the instance chosen is <code>ubuntu-latest</code> which loads an Ubuntu operating system on into your runner. </p>
+<p>For DART's <code>action_on_pull_request.yml</code> workflow, the instance chosen is <code>ubuntu-latest</code> which loads an Ubuntu operating system on into your runner.</p>
 <pre><code class="language-yaml">runs-on: ubuntu-latest                  # runner type
     container:                          # specifies a container to run on top of runner
       image: hkershaw/dart-dep:1.0      # uses dart-dep:1.0 container that is pulled from Dockerhub
-      options: &quot;--cap-add=SYS_PTRACE&quot;   # nasty argument required for OpenMPI to work correctly in containers
+      options: "--cap-add=SYS_PTRACE"   # nasty argument required for OpenMPI to work correctly in containers
 </code></pre>
 <p>At the time of writing, Linux-based runners have:</p>
 <ul>
@@ -758,7 +820,7 @@ Results and logs of your workflows are located in the <a href="https://github.co
 </blockquote>
 <p>GitHub Actions offer additional design options for running multiple parallel jobs such as <a href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs">job matrices</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="workflow-testing"><a class="header" href="#workflow-testing">Workflow Testing</a></h1>
-<p>When developing a workflow, it is a good idea to create a separate repository for development as to not disturb anyone that follows the main repository. For DART, there exists the following test repository, <a href="https://github.com/NCAR/github-actions-test">https://github.com/NCAR/github-actions-test</a>, to develop and test-run your workflows. </p>
+<p>When developing a workflow, it is a good idea to create a separate repository for development as to not disturb anyone that follows the main repository. For DART, there exists the following test repository, <a href="https://github.com/NCAR/github-actions-test">https://github.com/NCAR/github-actions-test</a>, to develop and test-run your workflows.</p>
 <p>As you develop your workflow, you will notice that for test-runs, there will be a lot (potentially 100s) of commits made to your workflow feature branch. As a result, it is a good idea to rebase and square the commits made before merging into the main branch.</p>
 <p>There are open-sourced tools available that help with the development process and even allow for workflows to run locally on your machine for testing:</p>
 <ul>
@@ -780,7 +842,7 @@ Results and logs of your workflows are located in the <a href="https://github.co
 <p>Composite GitHub Actions are re-useable and shareable bits that can be packaged and inserted into workflows.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="requirements"><a class="header" href="#requirements">Requirements</a></h1>
 <p>Composite actions have the following structural requirements:</p>
-<p>If the composite action is hosted within the main repository </p>
+<p>If the composite action is hosted within the main repository</p>
 <ul>
 <li>a directory that signifies the name of the composite action is located in <code>.github/actions/</code></li>
 <li>inside that directory <strong>must</strong> exist a file named <code>action.yml</code></li>
@@ -832,7 +894,7 @@ The location of the <code>action.yml</code> is <code>.github/actions/build_run_m
           use-mpi: true
           mpi-n-tasks: 2
 </code></pre>
-<p>For local composite actions, the <code>uses</code> key requires a full path from repository directory to the directory of your composite action containing the <code>action.yml</code> file. </p>
+<p>For local composite actions, the <code>uses</code> key requires a full path from repository directory to the directory of your composite action containing the <code>action.yml</code> file.</p>
 <p>As the example indicates, the composite action <code>build_run_model</code> is being invoked with four arguments: <code>model</code>, <code>run-program</code>, <code>use-mpi</code>, and <code>mpi-n-tasks</code>. A composite action may contain arguments that are not required to be specified upon invocation.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="actionyml-file"><a class="header" href="#actionyml-file">action.yml File</a></h1>
 <p>Now that we've taken a looked at how composite actions can be called, let's look at how the composite action file <code>action.yml</code> is constructed. Specifically, <code>build_run_model</code>'s <code>action.yml</code>.</p>
@@ -853,10 +915,10 @@ inputs:
     default: 'lorenz_96'
   [...]
 </code></pre>
-<p>Near the top of <code>action.yml</code>, is where the different input parameters are located. To references an argument passed to the composite action from a workflow, the syntax will look as follows: <code>${{ inputs.&lt;parameter_name&gt; }}</code>. </p>
+<p>Near the top of <code>action.yml</code>, is where the different input parameters are located. To references an argument passed to the composite action from a workflow, the syntax will look as follows: <code>${{ inputs.&lt;parameter_name&gt; }}</code>.</p>
 <p>Following the specified possible input parameters, is the meat of composite actions.</p>
 <pre><code class="language-yaml">runs:
-  using: &quot;composite&quot;
+  using: "composite"
   steps:
     # Steps to create Makefile template
     - name: Creating Makefile template :)
@@ -873,14 +935,14 @@ inputs:
       shell: bash
   [...]
 </code></pre>
-<p>A composite action is initially defined the <code>using: &quot;composite&quot;</code> line after the <code>run:</code> label. A composite action is almost like a giant <code>run:</code> instruction from <a href="./github-actions-workflow.html">workflows</a>, but is more flexible with the use of input parameters. One key point to make is that <code>shell: bash</code> has to be specified for each run <code>step:</code> inside a composite action. </p>
+<p>A composite action is initially defined the <code>using: "composite"</code> line after the <code>run:</code> label. A composite action is almost like a giant <code>run:</code> instruction from <a href="./github-actions-workflow.html">workflows</a>, but is more flexible with the use of input parameters. One key point to make is that <code>shell: bash</code> has to be specified for each run <code>step:</code> inside a composite action.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dart-docker-containers"><a class="header" href="#dart-docker-containers">DART Docker Containers</a></h1>
-<p>DART Docker files are stored in the <a href="https://github.com/NCAR/DART-containers.git">DART-containers</a> repo. </p>
-<p>If you add containers to this repo, follow the convention of </p>
+<p>DART Docker files are stored in the <a href="https://github.com/NCAR/DART-containers.git">DART-containers</a> repo.</p>
+<p>If you add containers to this repo, follow the convention of</p>
 <blockquote>
 <p>one Dockerfile per directory.</p>
 </blockquote>
-<p>NCAR has a dockerhub organization, but has used up its allotted number of users.  Possibly at some point NCAR will increase their dockerhub licenses. </p>
+<p>NCAR has a dockerhub organization, but has used up its allotted number of users.  Possibly at some point NCAR will increase their dockerhub licenses.</p>
 <p>DART Docker images are hosted on the <a href="https://hub.docker.com/repositories/hkershaw">hkershaw</a> dockerhub.<br />
 If we make more use of containers, we may need to look at creating a DART organization.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dart-web-presence"><a class="header" href="#dart-web-presence">DART web presence</a></h1>
@@ -888,7 +950,7 @@ If we make more use of containers, we may need to look at creating a DART organi
 <ul>
 <li>The <a href="./documentation.html">documentation</a> which is built from the .rst files in the main branch</li>
 <li>The <a href="./website.html">DART website</a> which is built from the private repo <a href="https://github.com/NCAR/dart-web">dart-web</a>
-and served thought the github pages branch on https://github.com/NCAR/DART. </li>
+and served thought the github pages branch on https://github.com/NCAR/DART.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dart-documentation"><a class="header" href="#dart-documentation">DART Documentation</a></h1>
 <p>The documentation for DART is written in reStructuredText, then
@@ -905,7 +967,7 @@ source dev-guide/bin/activate
 pip install Sphinx==6.2.1
 pip install sphinx-rtd-theme==1.2.2
 </code></pre>
-<p>Copy the following example Makefile to your machine. </p>
+<p>Copy the following example Makefile to your machine.</p>
 <p>Change the SOURCEDIR line to match where you have DART checked out.</p>
 <pre><code># Minimal makefile for Sphinx documentation
 #
@@ -917,16 +979,16 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = /Users/hkershaw/DART/Refactor/Build_system/DART.buildit
 BUILDDIR      = dart-docs
 
-# Put it first so that &quot;make&quot; without argument is like &quot;make help&quot;.
+# Put it first so that "make" without argument is like "make help".
 help:
-	@$(SPHINXBUILD) -M help &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: help Makefile
 
 # Catch-all target: route all unknown targets to Sphinx using the new
-# &quot;make mode&quot; option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
-	@$(SPHINXBUILD) -M $@ &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 </code></pre>
 <p>To make the docs, run:</p>
 <pre><code>make html
@@ -956,31 +1018,43 @@ the site.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
+    </div>
     </body>
 </html>
