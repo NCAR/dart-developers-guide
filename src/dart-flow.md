@@ -13,8 +13,10 @@ can be used **do science**.
    a bug fix, is it a new feature, is it refactoring existing code? Use
    the label `back-burner` for something that is low priority.
 
-3. Describe your solution in the issue. Give an estimation of how much
-   code this will effect. Will your solution require changing several
+3. If you have a solution describe your solution in the issue. Beware of
+   falling into the trap of working on a solution before defining the problem.
+   A good problem description is better than a poor solution.
+   Give an estimation of how much code this will effect. Will your solution require changing several
    modules? The [writing specifications](./example-spec.md) section of 
    this document gives an example of how to describe your solution.
 
