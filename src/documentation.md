@@ -18,8 +18,7 @@ To install Sphinx in a Python virtual environment:
 ```
 python -m venv dev-guide
 source dev-guide/bin/activate
-pip install Sphinx==6.2.1
-pip install sphinx-rtd-theme==1.2.2
+pip install -r $DART/guide/requirements.txt
 ```
 
 Copy the following example Makefile to your machine. 
