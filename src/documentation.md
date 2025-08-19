@@ -33,7 +33,7 @@ Change the SOURCEDIR line to match where you have DART checked out.
 # from the environment for the first two.
 SPHINXOPTS    ?= -n
 SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = /Users/hkershaw/DART/Refactor/Build_system/DART.buildit
+SOURCEDIR     = /Users/hkershaw/DART/issues/issue_897
 BUILDDIR      = dart-docs
 
 # Put it first so that "make" without argument is like "make help".
@@ -42,10 +42,15 @@ help:
 
 .PHONY: help Makefile
 
+linkcheck:
+	@$(SPHINXBUILD) -b linkcheck $(SOURCEDIR) $(BUILDDIR)/linkcheck
+
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
 ```
 
 
@@ -62,6 +67,21 @@ open dart-docs/html/README.html
 ```
 
 with your favorite browser.
+
+To check links in the documentation run:
+
+```
+make linkcheck
+````
+
+Note this will take some time, and some sites, e.g. journals.ametsoc.org block automated requests such as those from linkcheck.
+You can ignore domains by adding them to conf.py: 
+
+```
+linkcheck_ignore = [
+    r'https?://journals\.ametsoc\.org/.*',
+]
+```
 
 To deactivate the virtual environment
 
