@@ -43,9 +43,10 @@ jobs:
         with: 
           model: lorenz_96
           run-program: ./filter
+          compiler: gfortran
           use-mpi: true
           mpi-n-tasks: 2
 ```
 For local composite actions, the `uses` key requires a full path from repository directory to the directory of your composite action containing the `action.yml` file. 
 
-As the example indicates, the composite action `build_run_model` is being invoked with four arguments: `model`, `run-program`, `use-mpi`, and `mpi-n-tasks`. A composite action may contain arguments that are not required to be specified upon invocation.
+As the example indicates, the composite action `build_run_model` is being invoked with five arguments: `model`, `run-program`, `compiler`, `use-mpi`, and `mpi-n-tasks`. A composite action may contain arguments that are not required to be specified upon invocation.
