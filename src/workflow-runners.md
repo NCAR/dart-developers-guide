@@ -25,9 +25,9 @@ Alternatively, the CIRRUS self-hosted runners can be used. This can be done by s
 runs-on:
   group: cirrus-4x8                                                                 # runner type
     container:                                                                      # specifies a container to run on top of runner
-      image: dockerhub.io/ncarcisl/hpcdev-x86_64:almalinux9-gcc-openmpi-latest      # uses ncarcisl/hpcdev-x86_64 container that is pulled from Dockerhub
+      image: dockerhub.io/ncarcisl/hpcdev-x86_64:almalinux9-gcc-openmpi-latest      # uses ncarcisl/hpcdev-x86_64 container image that is pulled from Dockerhub
 ```
 
 The pull request workflow also loads pre-built Docker container that is hosted on Dockerhub. The usage of a container here is for speed. The libraries that DART depend on, netcdf and mpi, are installed in the container. The recipes for [DART Docker containers](containers.md) are stored in the [DART-containers](https://github.com/NCAR/DART-containers), while the pre-built container image is hosted and pulled from the Dockerhub repository [hkershaw/dart-dep:1.0](https://hub.docker.com/repository/docker/hkershaw/dart-dep/general).
 
-The pre-built container images for the NCAR HPC containers are hosted and pulled from the Dockerhub repository [dockerhub.io/ncarcisl/hpcdev-x86_64](https://hub.docker.com/r/ncarcisl/hpcdev-x86_64).
+The pre-built container images for the NCAR HPC containers are hosted and pulled from the Dockerhub repository [dockerhub.io/ncarcisl/hpcdev-x86_64](https://hub.docker.com/r/ncarcisl/hpcdev-x86_64). See [NCAR HPC Containers](./ncar-hpc-containers.md) for more information.

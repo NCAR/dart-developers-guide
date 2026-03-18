@@ -12,6 +12,4 @@ NCAR has a dockerhub organization, but has used up its allotted number of users.
 DART Docker images are hosted on the [hkershaw](https://hub.docker.com/repositories/hkershaw) dockerhub.  
 If we make more use of containers, we may need to look at creating a DART organization.
 
-NCAR HPC Docker images (to be used with CIRRUS-based actions), are hosted on the [ncarcisl/hpcdev-x86_64](https://hub.docker.com/r/ncarcisl/hpcdev-x86_64) dockerhub.
-Note that there are also NCAR HPC Docker images for alternative architectures, such as the images in [ncarcisl/hpcdev-aarch64](https://hub.docker.com/r/ncarcisl/hpcdev-aarch64), that can be used to run the containers locally.
-These images provide a number of various tags to allow for the usage of different compilers and MPI implementations.
+We can also utilize the NCAR HPC Docker containers, that simualate “portable” NCAR-like HPC development environments. See [NCAR HPC Containers](./ncar-hpc-containers.md) for more information on how these containers can be utilized. 
