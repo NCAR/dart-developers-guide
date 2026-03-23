@@ -1,5 +1,8 @@
 # Welcome to the DART Developer's Guide 
 
+
+BUILDING THE GUIDE ON GITHUB
+
 ## Goal of this document
 
 A *living* document to describe the DART software workflow. Our current
