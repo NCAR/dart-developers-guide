@@ -12,4 +12,4 @@ Note that the DART repository already has access to the CIRRUS runner scale sets
 
 See [Workflow Runners](./workflow-runners.md) for instructions on howt to use the CIRRUS runners in a workflow. 
 
-Sign up for the CIRRUS mailing list (ADD HERE) to get updates on CIRRUS and be notified when CIRRUS is down or under maintenance.
+If you are experiencing unknown issues with the CIRRUS runners, you can reach out to the CIRRUS team by [submitting a JIRA ticket](https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets/). 
