@@ -19,4 +19,4 @@ You can view the details of each GitHub action by clicking on `Details`
 
 >Both sets of tests run on _every_ commit to a pull request, so it is important that the tests run quickly.  The readthedocs documentation build takes ~89 seconds.  
 >
->Aim for any tests you add to take close to 90 seconds to complete.
+>Aim to beat 89s with any tests you add.
