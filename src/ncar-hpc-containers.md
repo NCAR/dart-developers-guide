@@ -19,17 +19,17 @@ There are various tags available for these images to allow for the usage of diff
 
 Upon setup, there are common issues that may be run into. The remainder of this page will go over some of these issues and how to go about fixing them.
 
-The first is specifying an old or depreacted nomencalture for the conatiner image, since these containers are still in deveopment and are subject to changes. Currently (as of March 17 2026), the up-to-date nomenclature for the Docker image is `dockerhub.io/ncarcisl/hpcdev-x86_64:tag`, replacing `tag` with the acutal name of the desired tag. You can stay up-to-date with regards to such updated by signing up for the CIRRUS mailing list (ADD HERE).
+The first is specifying an old or depreacted nomencalture for the conatiner image, since these containers are still in deveopment and are subject to changes. Currently (as of March 17 2026), the up-to-date nomenclature for the Docker image is `dockerhub.io/ncarcisl/hpcdev-x86_64:tag`, replacing `tag` with the acutal name of the desired tag.
 
 Another common issue when utilizing NCAR HPC Containers is not correctly initializing the shell. This will cause the GitHub Action to fail in the `Initiaize containers` phase of the Action with the following error:
 `Error: Executing the custom container implementation failed. Please contact your self hosted runner administrator.`
 
-To fix this issue ensure the following code is added to the workflow file after 'runs-on:' and before the 'container:' definition:
+To fix this issue, ensure the following code is added to the workflow file after 'runs-on:' and before the 'container:' definition:
 
     defaults:
       run:
         shell: bash -elo pipefail {0}
 
-This forces the container to start a bash login shell, which causes the 'ncarcisl' containers to initialize their software environment by 'sourcing' a common configuration file (/container/config_env.sh).
+This forces the container to start a bash login shell, which causes the ncarcisl containers to initialize their software environment by sourcing a common configuration file (/container/config_env.sh).
 
 To fix this issue when running a container image locally, source the configuration file manually with `source config_env.sh`.
