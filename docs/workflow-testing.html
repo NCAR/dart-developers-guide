@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-589e628a.js";
+            window.path_to_searchindex_js = "searchindex-5afb9df3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0f2421b4.js"></script>
+        <script src="toc-e55a872d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,6 +179,7 @@
                     <main>
                         <h1 id="workflow-testing"><a class="header" href="#workflow-testing">Workflow Testing</a></h1>
 <p>When developing a workflow, it is a good idea to create a separate repository for development as to not disturb anyone that follows the main repository. For DART, there exists the following test repository, <a href="https://github.com/NCAR/github-actions-test">https://github.com/NCAR/github-actions-test</a>, to develop and test-run your workflows.</p>
+<p>However, CIRRUS-based actions must be tested on the main DART repository, due to the fact that CIRRUS runners require a repository to have permission to use them.</p>
 <p>As you develop your workflow, you will notice that for test-runs, there will be a lot (potentially 100s) of commits made to your workflow feature branch. As a result, it is a good idea to rebase and square the commits made before merging into the main branch.</p>
 <p>There are open-sourced tools available that help with the development process and even allow for workflows to run locally on your machine for testing:</p>
 <ul>

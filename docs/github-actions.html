@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-589e628a.js";
+            window.path_to_searchindex_js = "searchindex-5afb9df3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0f2421b4.js"></script>
+        <script src="toc-e55a872d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,17 +180,18 @@
                         <h1 id="github-actions"><a class="header" href="#github-actions">GitHub Actions</a></h1>
 <p><a href="(https://docs.github.com/en/actions/quickstart)">GitHub Actions</a> is a software development automation platform that is integrated into GitHub repositories. The platform allows for the creation of several types of automated tasks such as build, test, and deploy. A set of these tasks is referred to as a <a href="./github-actions-workflow.html">workflow</a>.</p>
 <p>DART utilizes GitHub Actions to run automated tests when a pull request is submitted.
-The workflow is called <code>action_on_pull_request.yml</code>.
-The current tests are building and running lorenz_96 (mpi) and lorenz_63 (no mpi).</p>
+There are several workflows utilized by DART. The first workflow is called <code>action_on_pull_request.yml</code>, which includes tests that build and run lorenz_96 (mpi, mpif08) and lorenz_63 (no mpi).</p>
 <blockquote>
-<p>A pull request can not be merged until the tests pass.</p>
+<p>A pull request can not be merged until these tests pass.</p>
 </blockquote>
 <p><img src="images/actions.png" alt="actions"></p>
+<p>The second workflow is called <code>cirrus_action_on_pull_request.yml</code>. This workflow utilizes the CIRRUS, NSF NCAR’s on-prem cloud service, and NCAR HPC containers to run tests that build and run lorenz_96 with all mpi options (mpi, mpif08, nompi). These tests run with all compilers supported in the containers, which currently includes gfortran and nvfortran.</p>
+<p>These tests are not required to pass for the pull request to be merged.</p>
 <p>You can view the details of each GitHub action by clicking on <code>Details</code></p>
 <p><img src="images/details.png" alt="details"></p>
 <blockquote>
-<p>The tests run on <em>every</em> commit to a pull request, so it is important that the tests run quickly.  The readthedocs documentation build takes ~89 seconds.</p>
-<p>Aim to beat 89s with any tests you add.</p>
+<p>Both sets of tests run on <em>every</em> commit to a pull request, so it is important that the tests run quickly.  The readthedocs documentation build takes ~89 seconds.</p>
+<p>Aim for any tests you add to take close to 90 seconds to complete.</p>
 </blockquote>
 
                     </main>

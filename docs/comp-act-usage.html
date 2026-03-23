@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-589e628a.js";
+            window.path_to_searchindex_js = "searchindex-5afb9df3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0f2421b4.js"></script>
+        <script src="toc-e55a872d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -211,11 +211,12 @@
         with: 
           model: lorenz_96
           run-program: ./filter
+          compiler: gfortran
           use-mpi: true
           mpi-n-tasks: 2
 </code></pre>
 <p>For local composite actions, the <code>uses</code> key requires a full path from repository directory to the directory of your composite action containing the <code>action.yml</code> file.</p>
-<p>As the example indicates, the composite action <code>build_run_model</code> is being invoked with four arguments: <code>model</code>, <code>run-program</code>, <code>use-mpi</code>, and <code>mpi-n-tasks</code>. A composite action may contain arguments that are not required to be specified upon invocation.</p>
+<p>As the example indicates, the composite action <code>build_run_model</code> is being invoked with five arguments: <code>model</code>, <code>run-program</code>, <code>compiler</code>, <code>use-mpi</code>, and <code>mpi-n-tasks</code>. A composite action may contain arguments that are not required to be specified upon invocation.</p>
 
                     </main>
 

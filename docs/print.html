@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-589e628a.js";
+            window.path_to_searchindex_js = "searchindex-5afb9df3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0f2421b4.js"></script>
+        <script src="toc-e55a872d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -763,17 +763,18 @@ tags are not part of the fork when using the default options:</p>
 <h1 id="github-actions"><a class="header" href="#github-actions">GitHub Actions</a></h1>
 <p><a href="(https:/docs.github.com/en/actions/quickstart)">GitHub Actions</a> is a software development automation platform that is integrated into GitHub repositories. The platform allows for the creation of several types of automated tasks such as build, test, and deploy. A set of these tasks is referred to as a <a href="#workflows">workflow</a>.</p>
 <p>DART utilizes GitHub Actions to run automated tests when a pull request is submitted.
-The workflow is called <code>action_on_pull_request.yml</code>.
-The current tests are building and running lorenz_96 (mpi) and lorenz_63 (no mpi).</p>
+There are several workflows utilized by DART. The first workflow is called <code>action_on_pull_request.yml</code>, which includes tests that build and run lorenz_96 (mpi, mpif08) and lorenz_63 (no mpi).</p>
 <blockquote>
-<p>A pull request can not be merged until the tests pass.</p>
+<p>A pull request can not be merged until these tests pass.</p>
 </blockquote>
 <p><img src="images/actions.png" alt="actions"></p>
+<p>The second workflow is called <code>cirrus_action_on_pull_request.yml</code>. This workflow utilizes the CIRRUS, NSF NCAR’s on-prem cloud service, and NCAR HPC containers to run tests that build and run lorenz_96 with all mpi options (mpi, mpif08, nompi). These tests run with all compilers supported in the containers, which currently includes gfortran and nvfortran.</p>
+<p>These tests are not required to pass for the pull request to be merged.</p>
 <p>You can view the details of each GitHub action by clicking on <code>Details</code></p>
 <p><img src="images/details.png" alt="details"></p>
 <blockquote>
-<p>The tests run on <em>every</em> commit to a pull request, so it is important that the tests run quickly.  The readthedocs documentation build takes ~89 seconds.</p>
-<p>Aim to beat 89s with any tests you add.</p>
+<p>Both sets of tests run on <em>every</em> commit to a pull request, so it is important that the tests run quickly.  The readthedocs documentation build takes ~89 seconds.</p>
+<p>Aim for any tests you add to take close to 90 seconds to complete.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="workflows"><a class="header" href="#workflows">Workflows</a></h1>
@@ -825,7 +826,7 @@ Results and logs of your workflows are located in the <a href="https://github.co
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="workflow-runners"><a class="header" href="#workflow-runners">Workflow Runners</a></h1>
 <p>Runners are the machines that execute jobs in a GitHub Actions workflow. Runners are hosted by GitHub and what is available depends on the GitHub orgainizaion tier ($$$). Each <a href="#workflow-jobs">workflow job</a> must specify their runner instance type.</p>
-<p>The runners is specified by <code>runs-on:</code>  and can be chosen from this list of <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">runner instances</a>.</p>
+<p>The runners are specified by <code>runs-on:</code>  and can be chosen from this list of <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">Github-hosted runner instances</a>.</p>
 <p>For DART’s <code>action_on_pull_request.yml</code> workflow, the instance chosen is <code>ubuntu-latest</code> which loads an Ubuntu operating system on into your runner.</p>
 <pre><code class="language-yaml">runs-on: ubuntu-latest                  # runner type
     container:                          # specifies a container to run on top of runner
@@ -838,7 +839,14 @@ Results and logs of your workflows are located in the <a href="https://github.co
 <li>7 GB of RAM</li>
 <li>14 GB of local scratch storage</li>
 </ul>
+<p>Alternatively, the CIRRUS self-hosted runners can be used. This can be done by specifying <code>runs-on:</code> as shown below.</p>
+<pre><code class="language-yaml">runs-on:
+  group: cirrus-4x8                                                                 # runner type
+    container:                                                                      # specifies a container to run on top of runner
+      image: dockerhub.io/ncarcisl/hpcdev-x86_64:almalinux9-gcc-openmpi-latest      # uses ncarcisl/hpcdev-x86_64 container image that is pulled from Dockerhub
+</code></pre>
 <p>The pull request workflow also loads pre-built Docker container that is hosted on Dockerhub. The usage of a container here is for speed. The libraries that DART depend on, netcdf and mpi, are installed in the container. The recipes for <a href="#dart-docker-containers">DART Docker containers</a> are stored in the <a href="https://github.com/NCAR/DART-containers">DART-containers</a>, while the pre-built container image is hosted and pulled from the Dockerhub repository <a href="https://hub.docker.com/repository/docker/hkershaw/dart-dep/general">hkershaw/dart-dep:1.0</a>.</p>
+<p>The pre-built container images for the NCAR HPC containers are hosted and pulled from the Dockerhub repository <a href="https://hub.docker.com/r/ncarcisl/hpcdev-x86_64">dockerhub.io/ncarcisl/hpcdev-x86_64</a>. See <a href="#ncar-hpc-containers">NCAR HPC Containers</a> for more information.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="workflow-jobs"><a class="header" href="#workflow-jobs">Workflow Jobs</a></h1>
 <p>Workflow jobs are the specific sets of tasks that can be configured to run on your workflow. Multiple jobs with potentially different runner instance types can be configured to run in your workflow.</p>
@@ -849,6 +857,7 @@ Results and logs of your workflows are located in the <a href="https://github.co
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="workflow-testing"><a class="header" href="#workflow-testing">Workflow Testing</a></h1>
 <p>When developing a workflow, it is a good idea to create a separate repository for development as to not disturb anyone that follows the main repository. For DART, there exists the following test repository, <a href="https://github.com/NCAR/github-actions-test">https://github.com/NCAR/github-actions-test</a>, to develop and test-run your workflows.</p>
+<p>However, CIRRUS-based actions must be tested on the main DART repository, due to the fact that CIRRUS runners require a repository to have permission to use them.</p>
 <p>As you develop your workflow, you will notice that for test-runs, there will be a lot (potentially 100s) of commits made to your workflow feature branch. As a result, it is a good idea to rebase and square the commits made before merging into the main branch.</p>
 <p>There are open-sourced tools available that help with the development process and even allow for workflows to run locally on your machine for testing:</p>
 <ul>
@@ -922,11 +931,12 @@ Results and logs of your workflows are located in the <a href="https://github.co
         with: 
           model: lorenz_96
           run-program: ./filter
+          compiler: gfortran
           use-mpi: true
           mpi-n-tasks: 2
 </code></pre>
 <p>For local composite actions, the <code>uses</code> key requires a full path from repository directory to the directory of your composite action containing the <code>action.yml</code> file.</p>
-<p>As the example indicates, the composite action <code>build_run_model</code> is being invoked with four arguments: <code>model</code>, <code>run-program</code>, <code>use-mpi</code>, and <code>mpi-n-tasks</code>. A composite action may contain arguments that are not required to be specified upon invocation.</p>
+<p>As the example indicates, the composite action <code>build_run_model</code> is being invoked with five arguments: <code>model</code>, <code>run-program</code>, <code>compiler</code>, <code>use-mpi</code>, and <code>mpi-n-tasks</code>. A composite action may contain arguments that are not required to be specified upon invocation.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="actionyml-file"><a class="header" href="#actionyml-file">action.yml File</a></h1>
 <p>Now that we’ve taken a looked at how composite actions can be called, let’s look at how the composite action file <code>action.yml</code> is constructed. Specifically, <code>build_run_model</code>’s <code>action.yml</code>.</p>
@@ -969,6 +979,15 @@ inputs:
 </code></pre>
 <p>A composite action is initially defined the <code>using: "composite"</code> line after the <code>run:</code> label. A composite action is almost like a giant <code>run:</code> instruction from <a href="#workflows">workflows</a>, but is more flexible with the use of input parameters. One key point to make is that <code>shell: bash</code> has to be specified for each run <code>step:</code> inside a composite action.</p>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="cirrus-github-actions"><a class="header" href="#cirrus-github-actions">CIRRUS GitHub Actions</a></h1>
+<p>We can utilize <a href="https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/01-intro/">CIRRUS</a> (the NSF NCAR Cloud Infrastructure for Remote Research, Universities, and Scientists) to run GitHub Actions.</p>
+<p>The current workflow implementation that uses CIRRUS is described in <a href="#workflows">Workflows</a>.</p>
+<p>These CIRRUS runner scale sets require permission to use them. To use CIRRUS runner scale sets with a new GitHub repository, reach out to the CIRRUS team by creating a ticket in JIRA. See the CIRRUS documentation on <a href="https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/05-github-actions/scale-sets/#requesting-a-runner-scale-set">Requesting a Runner Scale Set</a> for more information on how to create a ticket. However, despite what the documentation currently says (as of March 18 2026), it is recommended to reach out to the CIRRUS team BEFORE creating a GitHub PAT and adding it to NCAR OpenBao. This is due to the CIRRUS team starting to deploy shared organizational runners since this documentation has been updated.</p>
+<p>Once the repository has been added to the list of permitted repositories, you can verify this by navigating to the home page of the repository in your browser. Then select <code>Actions</code> (at the top) -&gt; <code>Runners</code> (on the left) -&gt; <code>Self Hosted Runners</code>. You should now see a section “Shared with this repository”. Under that you should see a couple options *-cirrus-4x8. If those appear, you are ready to use the CIRRUS runner scale sets.</p>
+<p>Note that the DART repository already has access to the CIRRUS runner scale sets, so new GitHub Actions in DART can be setup to use CIRRUS simply by specifying the runner in the workflow.</p>
+<p>See <a href="#workflow-runners">Workflow Runners</a> for instructions on howt to use the CIRRUS runners in a workflow.</p>
+<p>If you are experiencing unknown issues with the CIRRUS runners, you can reach out to the CIRRUS team by <a href="https://ncar-hpc-docs.readthedocs.io/en/latest/compute-systems/cirrus/guides/02-interact-with-cirrus-team/create-tickets/">submitting a JIRA ticket</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="dart-docker-containers"><a class="header" href="#dart-docker-containers">DART Docker Containers</a></h1>
 <p>DART Docker files are stored in the <a href="https://github.com/NCAR/DART-containers.git">DART-containers</a> repo.</p>
 <p>If you add containers to this repo, follow the convention of</p>
@@ -977,6 +996,29 @@ inputs:
 </blockquote>
 <p>NCAR has a dockerhub organization, but has used up its allotted number of users.  Possibly at some point NCAR will increase their dockerhub licenses.</p>
 <p>DART Docker images are hosted on the <a href="https://hub.docker.com/repositories/hkershaw">hkershaw</a> dockerhub.<br>If we make more use of containers, we may need to look at creating a DART organization.</p>
+<p>We can also utilize the NCAR HPC Docker containers, that simualate “portable” NCAR-like HPC development environments. See <a href="#ncar-hpc-containers">NCAR HPC Containers</a> for more information on how these containers can be utilized.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ncar-hpc-containers"><a class="header" href="#ncar-hpc-containers">NCAR HPC Containers</a></h1>
+<p>NCAR HPC containers are HPC-centric development containers encapsulating a basic NCAR-ish development environment (i.e. Derecho).</p>
+<p>NCAR HPC Docker images are hosted on the <a href="https://hub.docker.com/r/ncarcisl">ncarcisl Docker Hub</a>.</p>
+<p>There are images availble for the architctures x86_64 and aarch64. They are located at <a href="https://hub.docker.com/r/ncarcisl/hpcdev-x86_64">ncarcisl/hpcdev-x86_64</a> and <a href="https://hub.docker.com/r/ncarcisl/hpcdev-aarch64">ncarcisl/hpcdev-aarch64</a>, respectively.</p>
+<p>Note that the <code>ncarcisl/cisldev</code> images are deprecated and should not be used.</p>
+<p>The <a href="https://hub.docker.com/r/ncarcisl/hpcdev-x86_64">ncarcisl/hpcdev-x86_64</a> Docker images can be used to run GitHub Actions on CIRRUS runner scale sets. See <a href="#cirrus-github-actions">CIRRUS GitHub Actions</a> for more information on CIRRUS-based GitHub Actions and how to utlize the containers in these workflows.</p>
+<p>The <a href="https://hub.docker.com/r/ncarcisl/hpcdev-aarch64">ncarcisl/hpcdev-aarch64</a> Docker images can be pulled and run locally on machines with an ARM processor. This is useful for testing and troubleshooting the desired workflow independent of the GitHub Actions framekwork and CIRRUS.</p>
+<p>The following is an example of how to pull and run an NCAR HPC container locally:
+<code>docker run -it ncarcisl/hpcdev-aarch64:leap-gcc14-mpich-latest /bin/bash</code></p>
+<p>There are various tags available for these images to allow for the usage of different compilers and MPI implementations. You can see all the available image variations by navigating to the Docker Hub page for the desired architecture and then selecting <code>Tags</code>. The tag is specified following the name of the Docker image and a colon. In this example, <code>ncarcisl/hpcdev-aarch64:leap-gcc14-mpich-latest</code>, the tag is <code>leap-gcc14-mpich-latest</code>.</p>
+<p>Upon setup, there are common issues that may be run into. The remainder of this page will go over some of these issues and how to go about fixing them.</p>
+<p>The first is specifying an old or depreacted nomencalture for the conatiner image, since these containers are still in deveopment and are subject to changes. Currently (as of March 17 2026), the up-to-date nomenclature for the Docker image is <code>dockerhub.io/ncarcisl/hpcdev-x86_64:tag</code>, replacing <code>tag</code> with the acutal name of the desired tag. You can stay up-to-date with regards to such updated by signing up for the CIRRUS mailing list (ADD HERE).</p>
+<p>Another common issue when utilizing NCAR HPC Containers is not correctly initializing the shell. This will cause the GitHub Action to fail in the <code>Initiaize containers</code> phase of the Action with the following error:
+<code>Error: Executing the custom container implementation failed. Please contact your self hosted runner administrator.</code></p>
+<p>To fix this issue ensure the following code is added to the workflow file after ‘runs-on:’ and before the ‘container:’ definition:</p>
+<pre><code>defaults:
+  run:
+    shell: bash -elo pipefail {0}
+</code></pre>
+<p>This forces the container to start a bash login shell, which causes the ‘ncarcisl’ containers to initialize their software environment by ‘sourcing’ a common configuration file (/container/config_env.sh).</p>
+<p>To fix this issue when running a container image locally, source the configuration file manually with <code>source config_env.sh</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="dart-web-presence"><a class="header" href="#dart-web-presence">DART web presence</a></h1>
 <p>There are two components to the DART web presence:</p>

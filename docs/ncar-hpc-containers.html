@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Creating a Release - DART Developer&#x27;s Guide</title>
+        <title>NCAR HPC Conatiners - DART Developer&#x27;s Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -177,79 +177,37 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="creating-a-release"><a class="header" href="#creating-a-release">Creating a Release</a></h1>
-<p>The DART releases are available on GitHub:</p>
-<p><a href="https://github.com/NCAR/DART/releases">https://github.com/NCAR/DART/releases</a></p>
-<p>The releases loosely follows the rules of <a href="https://semver.org/">semantic
-versioning</a> with a v at the start, e.g. v9.10.11.</p>
-<pre><code>vMAJOR.MINOR.PATCH
+                        <h1 id="ncar-hpc-containers"><a class="header" href="#ncar-hpc-containers">NCAR HPC Containers</a></h1>
+<p>NCAR HPC containers are HPC-centric development containers encapsulating a basic NCAR-ish development environment (i.e. Derecho).</p>
+<p>NCAR HPC Docker images are hosted on the <a href="https://hub.docker.com/r/ncarcisl">ncarcisl Docker Hub</a>.</p>
+<p>There are images availble for the architctures x86_64 and aarch64. They are located at <a href="https://hub.docker.com/r/ncarcisl/hpcdev-x86_64">ncarcisl/hpcdev-x86_64</a> and <a href="https://hub.docker.com/r/ncarcisl/hpcdev-aarch64">ncarcisl/hpcdev-aarch64</a>, respectively.</p>
+<p>Note that the <code>ncarcisl/cisldev</code> images are deprecated and should not be used.</p>
+<p>The <a href="https://hub.docker.com/r/ncarcisl/hpcdev-x86_64">ncarcisl/hpcdev-x86_64</a> Docker images can be used to run GitHub Actions on CIRRUS runner scale sets. See <a href="./cirrus-github-actions.html">CIRRUS GitHub Actions</a> for more information on CIRRUS-based GitHub Actions and how to utlize the containers in these workflows.</p>
+<p>The <a href="https://hub.docker.com/r/ncarcisl/hpcdev-aarch64">ncarcisl/hpcdev-aarch64</a> Docker images can be pulled and run locally on machines with an ARM processor. This is useful for testing and troubleshooting the desired workflow independent of the GitHub Actions framekwork and CIRRUS.</p>
+<p>The following is an example of how to pull and run an NCAR HPC container locally:
+<code>docker run -it ncarcisl/hpcdev-aarch64:leap-gcc14-mpich-latest /bin/bash</code></p>
+<p>There are various tags available for these images to allow for the usage of different compilers and MPI implementations. You can see all the available image variations by navigating to the Docker Hub page for the desired architecture and then selecting <code>Tags</code>. The tag is specified following the name of the Docker image and a colon. In this example, <code>ncarcisl/hpcdev-aarch64:leap-gcc14-mpich-latest</code>, the tag is <code>leap-gcc14-mpich-latest</code>.</p>
+<p>Upon setup, there are common issues that may be run into. The remainder of this page will go over some of these issues and how to go about fixing them.</p>
+<p>The first is specifying an old or depreacted nomencalture for the conatiner image, since these containers are still in deveopment and are subject to changes. Currently (as of March 17 2026), the up-to-date nomenclature for the Docker image is <code>dockerhub.io/ncarcisl/hpcdev-x86_64:tag</code>, replacing <code>tag</code> with the acutal name of the desired tag. You can stay up-to-date with regards to such updated by signing up for the CIRRUS mailing list (ADD HERE).</p>
+<p>Another common issue when utilizing NCAR HPC Containers is not correctly initializing the shell. This will cause the GitHub Action to fail in the <code>Initiaize containers</code> phase of the Action with the following error:
+<code>Error: Executing the custom container implementation failed. Please contact your self hosted runner administrator.</code></p>
+<p>To fix this issue ensure the following code is added to the workflow file after ‘runs-on:’ and before the ‘container:’ definition:</p>
+<pre><code>defaults:
+  run:
+    shell: bash -elo pipefail {0}
 </code></pre>
-<p>Given a version number vMAJOR.MINOR.PATCH, increment in the following way:</p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th></th><th></th></tr>
-</thead>
-<tbody>
-<tr><td>MAJOR</td><td>version when you make incompatible API changes</td></tr>
-<tr><td>MINOR</td><td>version when you add functionality in a backwards compatible manner</td></tr>
-<tr><td>PATCH</td><td>version when you make backwards compatible bug fixes.</td></tr>
-</tbody>
-</table>
-</div>
-<p>You may want to use additional labels for pre-release or other code as
-extensions to the <code>vMAJOR.MINOR.PATCH</code> format.</p>
-<blockquote>
-<p>Make sure your pull request is up-to-date with main before merging and
-creating a release.</p>
-</blockquote>
-<p>To create a release on GitHub:</p>
-<ol>
-<li>
-<p>Decide on a tag number following the convention
-<code>vMAJOR.MINOR.PATCH</code></p>
-</li>
-<li>
-<p>Update the CHANGELOG.rst with the tag and a brief desciption of the
-changes.</p>
-</li>
-<li>
-<p>Change the version in <code>conf.py</code></p>
-</li>
-<li>
-<p>Merge into main</p>
-</li>
-<li>
-<p>Create a release on GitHub from the main branch, by clicking on
-<code>Draft a new release</code></p>
-<p><img src="./images/new-release.png" alt="draft-new-release"></p>
-</li>
-<li>
-<p>Enter the tag number. Make sure the target branch is main.</p>
-</li>
-<li>
-<p>Give the release a title and description.</p>
-</li>
-<li>
-<p>Click publish to create the release.</p>
-</li>
-</ol>
-<p>For a major release or critical bug-fix releases, you may want to email
-the dart-users group.</p>
-<blockquote>
-<p>Once the code has been merged into main and released, you can delete the
-feature-branch.</p>
-</blockquote>
+<p>This forces the container to start a bash login shell, which causes the ‘ncarcisl’ containers to initialize their software environment by ‘sourcing’ a common configuration file (/container/config_env.sh).</p>
+<p>To fix this issue when running a container image locally, source the configuration file manually with <code>source config_env.sh</code>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="reviewing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="containers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="ideal-rotary-phone.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="web-and-docs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -259,11 +217,11 @@ feature-branch.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="reviewing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="containers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="ideal-rotary-phone.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="web-and-docs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-589e628a.js";
+            window.path_to_searchindex_js = "searchindex-5afb9df3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0f2421b4.js"></script>
+        <script src="toc-e55a872d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,7 +179,7 @@
                     <main>
                         <h1 id="workflow-runners"><a class="header" href="#workflow-runners">Workflow Runners</a></h1>
 <p>Runners are the machines that execute jobs in a GitHub Actions workflow. Runners are hosted by GitHub and what is available depends on the GitHub orgainizaion tier ($$$). Each <a href="workflow-jobs.html">workflow job</a> must specify their runner instance type.</p>
-<p>The runners is specified by <code>runs-on:</code>  and can be chosen from this list of <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">runner instances</a>.</p>
+<p>The runners are specified by <code>runs-on:</code>  and can be chosen from this list of <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">Github-hosted runner instances</a>.</p>
 <p>For DART’s <code>action_on_pull_request.yml</code> workflow, the instance chosen is <code>ubuntu-latest</code> which loads an Ubuntu operating system on into your runner.</p>
 <pre><code class="language-yaml">runs-on: ubuntu-latest                  # runner type
     container:                          # specifies a container to run on top of runner
@@ -192,7 +192,14 @@
 <li>7 GB of RAM</li>
 <li>14 GB of local scratch storage</li>
 </ul>
+<p>Alternatively, the CIRRUS self-hosted runners can be used. This can be done by specifying <code>runs-on:</code> as shown below.</p>
+<pre><code class="language-yaml">runs-on:
+  group: cirrus-4x8                                                                 # runner type
+    container:                                                                      # specifies a container to run on top of runner
+      image: dockerhub.io/ncarcisl/hpcdev-x86_64:almalinux9-gcc-openmpi-latest      # uses ncarcisl/hpcdev-x86_64 container image that is pulled from Dockerhub
+</code></pre>
 <p>The pull request workflow also loads pre-built Docker container that is hosted on Dockerhub. The usage of a container here is for speed. The libraries that DART depend on, netcdf and mpi, are installed in the container. The recipes for <a href="containers.html">DART Docker containers</a> are stored in the <a href="https://github.com/NCAR/DART-containers">DART-containers</a>, while the pre-built container image is hosted and pulled from the Dockerhub repository <a href="https://hub.docker.com/repository/docker/hkershaw/dart-dep/general">hkershaw/dart-dep:1.0</a>.</p>
+<p>The pre-built container images for the NCAR HPC containers are hosted and pulled from the Dockerhub repository <a href="https://hub.docker.com/r/ncarcisl/hpcdev-x86_64">dockerhub.io/ncarcisl/hpcdev-x86_64</a>. See <a href="./ncar-hpc-containers.html">NCAR HPC Containers</a> for more information.</p>
 
                     </main>
 
