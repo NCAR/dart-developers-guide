@@ -19,7 +19,7 @@ There are various tags available for these images to allow for the usage of diff
 
 Upon setup, there are common issues that may be run into. The remainder of this page will go over some of these issues and how to go about fixing them.
 
-The first is specifying an old or depreacted nomencalture for the conatiner image, since these containers are still in deveopment and are subject to changes. Currently (as of March 17 2026), the up-to-date nomenclature for the Docker image is `dockerhub.io/ncarcisl/hpcdev-x86_64:tag`, replacing `tag` with the acutal name of the desired tag.
+The first is specifying an old or depreacted nomencalture for the conatiner image, since these containers are still in deveopment and are subject to changes. Currently (as of March 17 2026), the up-to-date nomenclature for the Docker image is `docker.io/ncarcisl/hpcdev-x86_64:tag`, replacing `tag` with the acutal name of the desired tag.
 
 Another common issue when utilizing NCAR HPC Containers is not correctly initializing the shell. This will cause the GitHub Action to fail in the `Initiaize containers` phase of the Action with the following error:
 `Error: Executing the custom container implementation failed. Please contact your self hosted runner administrator.`
