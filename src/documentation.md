@@ -11,8 +11,20 @@ build by clicking on `show all checks` then `details`.
 
 You can build the DART documentation locally using Sphinx.
 
-### Installing Sphinx Locally
+## Installing Sphinx Locally
 
+Either use [uv](https://docs.astral.sh/uv/), or a [virtual environment](https://docs.python.org/3/library/venv.html).
+
+### Using uv
+There is a uv project at [https://github.com/hkershaw-brown/uv-dart-docs](https://github.com/hkershaw-brown/uv-dart-docs/tree/main). The project included the Makefile used for the Sphinx build. 
+Note you'll need uv installed to make the documentation using this project. 
+
+```
+git clone https://github.com/hkershaw-brown/uv-dart-docs.git
+cd uv-dart-docs
+```
+
+### Using a Python virtual environment
 To install Sphinx in a Python virtual environment:
 
 ```
@@ -53,11 +65,25 @@ linkcheck:
 
 ```
 
+To deactivate the virtual environment once you have built the docs:
+
+```
+deactivate
+```
+
+## Building the docs
 
 To make the docs, run:
 
 ```
 make html
+```
+
+The SOURCEDIR in the Makefile is the location of the DART docs. You can pass
+this to make, e.g.:
+
+```
+ make SOURCEDIR=/Users/hkershaw/DART/DART.clean html
 ```
 
 To view the docs:
@@ -83,8 +109,5 @@ linkcheck_ignore = [
 ]
 ```
 
-To deactivate the virtual environment
 
-```
-deactivate
 
